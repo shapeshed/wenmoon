@@ -1,0 +1,151 @@
+name: release
+on:
+  push:
+    tags:
+    - "[0-9]+.[0-9]+.[0-9]+"
+env:
+  CARGO_INCREMENTAL: 0
+permissions:
+  contents: write
+jobs:
+  release:
+    name: ${{ matrix.target }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-musl
+            deb: true
+          - os: ubuntu-latest
+            target: arm-unknown-linux-musleabihf
+          - os: ubuntu-latest
+            target: armv7-unknown-linux-musleabihf
+          - os: ubuntu-latest
+            target: aarch64-unknown-linux-musl
+            deb: true
+          - os: macos-11
+            target: x86_64-apple-darwin
+          - os: macos-11
+            target: aarch64-apple-darwin
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+          - os: windows-latest
+            target: aarch64-pc-windows-msvc
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Get version
+        id: get_version
+        uses: SebRollen/toml-action@v1.2.0
+        with:
+          file: Cargo.toml
+          field: package.version
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          override: true
+          target: ${{ matrix.target }}
+      - name: Setup cache
+        uses: Swatinem/rust-cache@v2.7.3
+        with:
+          key: ${{ matrix.target }}
+      - name: Build binary
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release --locked --target=${{ matrix.target }} --color=always --verbose
+          use-cross: ${{ runner.os == 'Linux' }}
+      - name: Install cargo-deb
+        if: ${{ matrix.deb == true }}
+        uses: actions-rs/install@v0.1
+        with:
+          crate: cargo-deb
+      - name: Build deb
+        if: ${{ matrix.deb == true }}
+        uses: actions-rs/cargo@v1
+        with:
+          command: deb
+          args: --no-build --no-strip --output=. --target=${{ matrix.target }}
+      - name: Package (*nix)
+        if: runner.os != 'Windows'
+        run: |
+          tar -cv CHANGELOG.md LICENSE README.md \
+            -C target/${{ matrix.target }}/release/ wenmoon |
+            gzip --best > \
+            wenmoon-${{ steps.get_version.outputs.value }}-${{ matrix.target }}.tar.gz
+      - name: Package (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          7z a wenmoon-${{ steps.get_version.outputs.value }}-${{ matrix.target }}.zip `
+            CHANGELOG.md LICENSE README.md `
+            ./target/${{ matrix.target }}/release/wenmoon.exe
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.target }}
+          path: |
+            *.deb
+            *.tar.gz
+            *.zip
+      - name: Create release
+        if: |
+          github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'chore(release)')
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          files: |
+            *.deb
+            *.tar.gz
+            *.zip
+          name: ${{ steps.get_version.outputs.value }}
+          tag_name: ""
+
+  consolidate-and-release:
+      needs: release
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
+
+        - name: Download all workflow run artifacts
+          uses: actions/download-artifact@v4
+          with:
+            path: artifacts
+
+        - name: Generate SHA256 checksums for all artifacts
+          run: |
+            mkdir checksums
+            find artifacts -type f \( -name '*.deb' -o -name '*.tar.gz' -o -name '*.zip' \) -exec sh -c 'cd $(dirname {}) && sha256sum $(basename {})' \; | awk '{print $1, $2}' > checksums/sha256sums.txt
+
+
+        - name: Upload consolidated SHA256 checksums as artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: sha256sums
+            path: checksums/sha256sums.txt
+
+        - name: Extract changelog section
+          run: |
+            version=${GITHUB_REF#refs/tags/}
+            awk -v version="$version" '$0 ~ "## \\[" version "\\]"{flag=1;next} /## \[/{flag=0}flag' CHANGELOG.md > "${GITHUB_WORKSPACE}/CHANGELOG_SECTION.txt"
+
+        - name: Create release and upload checksums and artifacts
+          uses: softprops/action-gh-release@v1
+          with:
+            body_path: ${{ github.workspace }}/CHANGELOG_SECTION.txt
+            files: |
+              checksums/sha256sums.txt
+              artifacts/**/*.deb
+              artifacts/**/*.tar.gz
+              artifacts/**/*.zip
+            name: ${{ github.ref_name }}
+            tag_name: ${{ github.ref_name }}
+
+
+

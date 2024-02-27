@@ -1,0 +1,37 @@
+[package]
+authors = ["George Ornbo <george@shapeshed.com>"]
+categories = ["command-line-utilities", "filesystem"]
+description = "Your crypto portfolio and terminal together at last"
+edition = "2021"
+homepage = "https://github.com/shapeshed/wenmoon"
+keywords = ["cli", "filesystem", "shell", "tool", "utility"]
+license = "Apache"
+name = "wenmoon"
+readme = "README.md"
+repository = "https://github.com/shapeshed/wenmoon"
+rust-version = "1.72.0"
+version = "0.1.0"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_derive = "1.0"
+serde_yaml = "0.9"
+reqwest = { version = "0.11", features = ["json"] }
+tokio = { version = "1", features = ["full"] }
+openssl = { version = "0.10", features = ["vendored"] }
+
+[target.'cfg(unix)'.dependencies]
+nix = { version = "0.28.0", default-features = false, features = [
+    "fs",
+    "user",
+] }
+
+[target.'cfg(windows)'.dependencies]
+which = "6.0.0"
+
+[profile.release]
+codegen-units = 1
+debug = 0
+lto = true
+strip = true
