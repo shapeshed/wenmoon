@@ -1,6 +1,7 @@
 # Wen moon?
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/shapeshed/wenmoon/release.yml)
+![Crates.io Version](https://img.shields.io/crates/v/wenmoon)
 
 Your crypto portfolio and terminal together at last :handshake:
 
