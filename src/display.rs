@@ -47,15 +47,15 @@ pub fn format_with_commas(num: f64) -> String {
 
 pub fn print_table_header() {
     println!(
-        " +{:-<12}+{:-<9}+{:-<12}+{:-<17}+{:-<17}+{:-<17}+",
+        " +{:-<12}+{:-<10}+{:-<12}+{:-<17}+{:-<17}+{:-<17}+",
         "", "", "", "", "", ""
     );
     println!(
-        " | {:<10} | {:>7} | {:>10} | {:>15} | {:>15} | {:>15} |",
+        " | {:<10} | {:>8} | {:>10} | {:>15} | {:>15} | {:>15} |",
         "Ticker", "Price", "+/- 24h", "Value (USD)", "P&L (USD)", "P&L %"
     );
     println!(
-        " +{:-<12}+{:-<9}+{:-<12}+{:-<17}+{:-<17}+{:-<17}+",
+        " +{:-<12}+{:-<10}+{:-<12}+{:-<17}+{:-<17}+{:-<17}+",
         "", "", "", "", "", ""
     );
 }
@@ -76,7 +76,7 @@ pub fn print_table_row(row: &super::TableRow) {
         .map_or_else(|| "-".to_string(), format_with_commas);
 
     println!(
-        " | {:<10} | {:>7.2} | {:>19} | {:>15} | {:>24} | {:>24} |",
+        " | {:<10} | {:>8.2} | {:>19} | {:>15} | {:>24} | {:>24} |",
         row.ticker, row.price, percent_change_str, value_str, pl_str, pl_percent_str
     );
 }
@@ -91,12 +91,12 @@ pub fn print_sum_row(
     let cumulative_pl_str = format_and_color_value(cumulative_pl, false);
     let cumulative_pl_percentage_str = format_and_color_value(cumulative_pl_percentage, true);
     println!(
-        " | {:-<11}+{:-<9}+{:-<12}+{:-<17}+{:-<17}+{:-<17}+",
+        " | {:-<11}+{:-<10}+{:-<12}+{:-<17}+{:-<17}+{:-<17}+",
         "", "", "", "", "", ""
     );
 
     println!(
-        " | {:<10} | {:>7} | {:>19} | {:>15} | {:>24} | {:>24} |",
+        " | {:<10} | {:>8} | {:>19} | {:>15} | {:>24} | {:>24} |",
         "Total",
         "",
         percent_change_str,
@@ -106,7 +106,7 @@ pub fn print_sum_row(
     );
 
     println!(
-        " +{:-<12}+{:-<9}+{:-<12}+{:-<17}+{:-<17}+{:-<17}+",
+        " +{:-<12}+{:-<10}+{:-<12}+{:-<17}+{:-<17}+{:-<17}+",
         "", "", "", "", "", ""
     );
 }
