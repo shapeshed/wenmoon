@@ -91,7 +91,7 @@ pub fn print_sum_row(
     let cumulative_pl_str = format_and_color_value(cumulative_pl, false);
     let cumulative_pl_percentage_str = format_and_color_value(cumulative_pl_percentage, true);
     println!(
-        " | {:-<11}+{:-<10}+{:-<12}+{:-<17}+{:-<17}+{:-<17}+",
+        " + {:-<11}+{:-<10}+{:-<12}+{:-<17}+{:-<17}+{:-<16} +",
         "", "", "", "", "", ""
     );
 
