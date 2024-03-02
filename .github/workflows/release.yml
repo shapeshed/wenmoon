@@ -75,7 +75,7 @@ jobs:
       - name: Package (*nix)
         if: runner.os != 'Windows'
         run: |
-          tar -cv CHANGELOG.md LICENSE README.md \
+          tar -cv CHANGELOG.md LICENSE-MIT LICENSE-APACHE README.md \
             -C target/${{ matrix.target }}/release/ wenmoon |
             gzip --best > \
             wenmoon-${{ steps.get_version.outputs.value }}-${{ matrix.target }}.tar.gz
@@ -83,7 +83,7 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           7z a wenmoon-${{ steps.get_version.outputs.value }}-${{ matrix.target }}.zip `
-            CHANGELOG.md LICENSE README.md `
+            CHANGELOG.md LICENSE-MIT LICENCE-APACHE README.md `
             ./target/${{ matrix.target }}/release/wenmoon.exe
       - name: Upload artifact
         uses: actions/upload-artifact@v4
