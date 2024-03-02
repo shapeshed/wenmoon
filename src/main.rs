@@ -5,8 +5,7 @@ mod portfolio;
 use api::fetch_price;
 use clap::{App, Arg};
 use config::{get_config_path, Config};
-use model::TableRow;
-use portfolio::{process_portfolio_data, summarize_portfolio};
+use portfolio::{create_summary_row, process_portfolio_data};
 use reqwest::Client;
 use std::env;
 use tabled::settings::{
@@ -66,26 +65,8 @@ async fn main() {
     match fetch_price(&client, &tickers_string, &config.api_key).await {
         Ok(response) => {
             let mut table_rows = process_portfolio_data(&config.portfolio, &response, sort_order);
-            let (
-                total_value,
-                weighted_average_percent_change,
-                cumulative_pl,
-                cumulative_pl_percentage,
-            ) = summarize_portfolio(&table_rows);
-            // Create a summary TableRow
-            let summary_row = TableRow {
-                ticker: "Summary".to_string(),
-                price: None,
-                hourly_percent_change: 0.0,
-                daily_percent_change: weighted_average_percent_change,
-                weekly_percent_change: 0.0,
-                entry_price: None,
-                amount: None,
-                value: Some(total_value),
-                pl: Some(cumulative_pl),
-                pl_percent: Some(cumulative_pl_percentage),
-            };
 
+            let summary_row = create_summary_row(&table_rows);
             table_rows.push(summary_row);
 
             let table = Table::new(&table_rows)

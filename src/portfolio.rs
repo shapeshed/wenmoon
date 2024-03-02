@@ -128,3 +128,21 @@ pub fn summarize_portfolio(table_rows: &[TableRow]) -> (f64, f64, f64, f64) {
         cumulative_pl_percentage,
     )
 }
+
+pub fn create_summary_row(table_rows: &Vec<TableRow>) -> TableRow {
+    let (total_value, weighted_average_percent_change, cumulative_pl, cumulative_pl_percentage) =
+        summarize_portfolio(table_rows);
+
+    TableRow {
+        ticker: "Summary".to_string(),
+        price: None,
+        hourly_percent_change: 0.0,
+        daily_percent_change: weighted_average_percent_change,
+        weekly_percent_change: 0.0,
+        entry_price: None,
+        amount: None,
+        value: Some(total_value),
+        pl: Some(cumulative_pl),
+        pl_percent: Some(cumulative_pl_percentage),
+    }
+}
