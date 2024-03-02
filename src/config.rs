@@ -23,15 +23,9 @@ impl Config {
     }
 }
 
-pub fn get_config_path(args: &[String]) -> String {
-    let config_arg = args
-        .iter()
-        .position(|arg| arg == "-c")
-        .map(|index| index + 1);
-    if let Some(config_index) = config_arg {
-        if config_index < args.len() {
-            return args[config_index].clone();
-        }
+pub fn get_config_path(config_arg: Option<&str>) -> String {
+    if let Some(config_path) = config_arg {
+        return config_path.to_string();
     }
 
     let xdg_config_home = env::var("XDG_CONFIG_HOME")

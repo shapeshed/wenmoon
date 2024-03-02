@@ -47,66 +47,15 @@ pub fn format_with_commas(num: f64) -> String {
 
 pub fn print_table_header() {
     println!(
-        " +{:-<12}+{:-<12}+{:-<12}+{:-<17}+{:-<17}+{:-<17}+",
-        "", "", "", "", "", ""
+        " +{:-<12}+{:-<12}+{:-<12}+{:-<12}+{:-<12}+{:-<17}+{:-<17}+{:-<17}+",
+        "", "", "", "", "", "", "", ""
     );
     println!(
-        " | {:<10} | {:>10} | {:>10} | {:>15} | {:>15} | {:>15} |",
-        "Ticker", "Price", "+/- 24h", "Value (USD)", "P&L (USD)", "P&L %"
+        " | {:<10} | {:>10} | {:>10} | {:>10} | {:>10} | {:>15} | {:>15} | {:>15} |",
+        "Ticker", "Price", "1h %", "24h %", "7d %", "Value (USD)", "P&L (USD)", "P&L %"
     );
     println!(
-        " +{:-<12}+{:-<12}+{:-<12}+{:-<17}+{:-<17}+{:-<17}+",
-        "", "", "", "", "", ""
-    );
-}
-
-pub fn print_table_row(row: &super::TableRow) {
-    let percent_change_str = format_and_color_value(row.percent_change, true);
-    let pl_str = row.pl.map_or_else(
-        || colourise_grey("-"),
-        |pl| format_and_color_value(pl, false),
-    );
-    let pl_percent_str = row.pl_percent.map_or_else(
-        || colourise_grey("-"),
-        |pl_percent| format_and_color_value(pl_percent, true),
-    );
-
-    let value_str = row
-        .value
-        .map_or_else(|| "-".to_string(), format_with_commas);
-
-    println!(
-        " | {:<10} | {:>10.3} | {:>19} | {:>15} | {:>24} | {:>24} |",
-        row.ticker, row.price, percent_change_str, value_str, pl_str, pl_percent_str
-    );
-}
-
-pub fn print_sum_row(
-    sum: f64,
-    average_percent_change: f64,
-    cumulative_pl: f64,
-    cumulative_pl_percentage: f64,
-) {
-    let percent_change_str = format_and_color_value(average_percent_change, true);
-    let cumulative_pl_str = format_and_color_value(cumulative_pl, false);
-    let cumulative_pl_percentage_str = format_and_color_value(cumulative_pl_percentage, true);
-    println!(
-        " + {:-<11}+{:-<12}+{:-<12}+{:-<17}+{:-<17}+{:-<16} +",
-        "", "", "", "", "", ""
-    );
-
-    println!(
-        " | {:<10} | {:>10} | {:>19} | {:>15} | {:>24} | {:>24} |",
-        "Total",
-        "",
-        percent_change_str,
-        format_with_commas(sum),
-        cumulative_pl_str,
-        cumulative_pl_percentage_str
-    );
-
-    println!(
-        " +{:-<12}+{:-<12}+{:-<12}+{:-<17}+{:-<17}+{:-<17}+",
-        "", "", "", "", "", ""
+        " +{:-<12}+{:-<12}+{:-<12}+{:-<12}+{:-<12}+{:-<17}+{:-<17}+{:-<17}+",
+        "", "", "", "", "", "", "", ""
     );
 }
