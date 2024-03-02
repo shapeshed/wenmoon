@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.0] - 2014-03-02
+
+### Changed
+
+- Use clap for cli arguments
+- Use tabled for table output
+- Factor out summary row
+- Update LICENSE
+
+### Fixed
+
+- Fix help text
+
 ## [0.0.3] - 2014-02-27
 
 ### Added
@@ -32,6 +45,7 @@ and this project adheres to
 
 - Initial release
 
+[0.1.0]: https://github.com/shapeshed/wenmoon/compare/v0.0.3...v0.1.0
 [0.0.3]: https://github.com/shapeshed/wenmoon/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/shapeshed/wenmoon/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/shapeshed/wenmoon/releases/tag/0.0.1
