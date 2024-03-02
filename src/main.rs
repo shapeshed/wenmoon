@@ -10,7 +10,7 @@ use reqwest::Client;
 use std::env;
 use tabled::settings::{
     object::{Columns, Object, Rows},
-    Alignment, Border, Padding, Style,
+    Alignment, Border, Margin, Padding, Style,
 };
 use tabled::Table;
 
@@ -33,7 +33,7 @@ async fn main() {
                 .short('s')
                 .long("sort")
                 .value_name("ORDER")
-                .help("Sets the sort order: h for hourly, w for weekly, m for monthly")
+                .help("Sets the sort order: h for hourly, d for daily, w for weekly, m for monthly")
                 .takes_value(true),
         )
         .get_matches();
@@ -71,6 +71,7 @@ async fn main() {
 
             let table = Table::new(&table_rows)
                 .with(Style::psql())
+                .with(Margin::new(1, 0, 1, 0))
                 .modify(
                     Columns::new(1..).not(Columns::first()),
                     Padding::new(5, 1, 0, 0),

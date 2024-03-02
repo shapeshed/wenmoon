@@ -32,7 +32,6 @@ pub struct CryptoCurrency {
 pub struct CurrencyQuote {
     pub price: f64,
     pub volume_24h: f64,
-    pub volume_change_24h: f64,
     pub percent_change_1h: f64,
     pub percent_change_24h: f64,
     pub percent_change_7d: f64,

@@ -34,6 +34,7 @@ pub fn process_portfolio_data(
                         hourly_percent_change: quote.percent_change_1h,
                         daily_percent_change: quote.percent_change_24h,
                         weekly_percent_change: quote.percent_change_7d,
+                        monthly_percent_change: quote.percent_change_30d,
                         value: Some(value),
                         pl,
                         pl_percent,
@@ -48,6 +49,7 @@ pub fn process_portfolio_data(
                         hourly_percent_change: quote.percent_change_1h,
                         daily_percent_change: quote.percent_change_24h,
                         weekly_percent_change: quote.percent_change_7d,
+                        monthly_percent_change: quote.percent_change_30d,
                         value: None,
                         pl: None,
                         pl_percent: None,
@@ -71,6 +73,11 @@ pub fn process_portfolio_data(
         "w" => table_rows.sort_by(|a, b| {
             b.weekly_percent_change
                 .partial_cmp(&a.weekly_percent_change)
+                .unwrap_or(std::cmp::Ordering::Equal)
+        }),
+        "m" => table_rows.sort_by(|a, b| {
+            b.monthly_percent_change
+                .partial_cmp(&a.monthly_percent_change)
                 .unwrap_or(std::cmp::Ordering::Equal)
         }),
         _ => table_rows.sort_by(|a, b| {
@@ -139,6 +146,7 @@ pub fn create_summary_row(table_rows: &Vec<TableRow>) -> TableRow {
         hourly_percent_change: 0.0,
         daily_percent_change: weighted_average_percent_change,
         weekly_percent_change: 0.0,
+        monthly_percent_change: 0.0,
         entry_price: None,
         amount: None,
         value: Some(total_value),

@@ -1,4 +1,4 @@
-use colored::Colorize;
+se colored::Colorize;
 use tabled::Tabled;
 
 use separator::FixedPlaceSeparatable;
@@ -15,6 +15,8 @@ pub struct TableRow {
     pub daily_percent_change: f64,
     #[tabled(display_with = "two_decimals", rename = "1w %")]
     pub weekly_percent_change: f64,
+    #[tabled(display_with = "two_decimals", rename = "1m %")]
+    pub monthly_percent_change: f64,
     #[tabled(skip)]
     pub entry_price: Option<f64>,
     #[tabled(skip)]
