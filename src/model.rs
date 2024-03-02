@@ -1,4 +1,4 @@
-se colored::Colorize;
+use colored::Colorize;
 use tabled::Tabled;
 
 use separator::FixedPlaceSeparatable;
