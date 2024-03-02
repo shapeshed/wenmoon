@@ -34,7 +34,7 @@ async fn main() {
                 .short('s')
                 .long("sort")
                 .value_name("ORDER")
-                .help("Sets the sort order: d for daily, m for monthly, y for yearly")
+                .help("Sets the sort order: h for hourly, w for weekly, m for monthly")
                 .takes_value(true),
         )
         .get_matches();
