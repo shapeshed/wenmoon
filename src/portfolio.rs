@@ -136,7 +136,7 @@ pub fn summarize_portfolio(table_rows: &[TableRow]) -> (f64, f64, f64, f64) {
     )
 }
 
-pub fn create_summary_row(table_rows: &Vec<TableRow>) -> TableRow {
+pub fn create_summary_row(table_rows: &[TableRow]) -> TableRow {
     let (total_value, weighted_average_percent_change, cumulative_pl, cumulative_pl_percentage) =
         summarize_portfolio(table_rows);
 
