@@ -1,3 +1,4 @@
+use async_trait::async_trait;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
@@ -55,18 +56,36 @@ pub struct Status {
 const BASE_URL: &str = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest";
 const CURRENCY: &str = "USD";
 
-pub async fn fetch_price(
-    client: &Client,
-    tickers: &str,
-    api_key: &str,
-) -> Result<CryptoResponse, reqwest::Error> {
-    let url = format!("{}?symbol={}&convert={}", BASE_URL, tickers, CURRENCY);
+#[async_trait]
+pub trait CryptoPriceFetcher {
+    async fn fetch_price(&self, tickers: &str) -> Result<CryptoResponse, reqwest::Error>;
+}
 
-    client
-        .get(&url)
-        .header("X-CMC_PRO_API_KEY", api_key)
-        .send()
-        .await?
-        .json::<CryptoResponse>()
-        .await
+pub struct CoinMarketCapClient {
+    client: Client,
+    api_key: String,
+}
+
+impl CoinMarketCapClient {
+    pub fn new(api_key: String) -> Self {
+        CoinMarketCapClient {
+            client: Client::new(),
+            api_key,
+        }
+    }
+}
+
+#[async_trait]
+impl CryptoPriceFetcher for CoinMarketCapClient {
+    async fn fetch_price(&self, tickers: &str) -> Result<CryptoResponse, reqwest::Error> {
+        let url = format!("{}?symbol={}&convert={}", BASE_URL, tickers, CURRENCY);
+
+        self.client
+            .get(&url)
+            .header("X-CMC_PRO_API_KEY", &self.api_key)
+            .send()
+            .await?
+            .json::<CryptoResponse>()
+            .await
+    }
 }

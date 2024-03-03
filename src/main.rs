@@ -2,11 +2,10 @@ mod api;
 mod config;
 mod model;
 mod portfolio;
-use api::fetch_price;
+use api::{CoinMarketCapClient, CryptoPriceFetcher};
 use clap::{App, Arg};
 use config::{get_config_path, Config};
 use portfolio::{create_summary_row, process_portfolio_data};
-use reqwest::Client;
 use std::env;
 use tabled::settings::{
     object::{Columns, Object, Rows},
@@ -51,7 +50,7 @@ async fn main() {
     });
 
     // Initialise a reqwest client
-    let client = Client::new();
+    let api_client = CoinMarketCapClient::new(config.api_key.clone());
 
     // Collect the tickers to look up
     let tickers: Vec<String> = config
@@ -62,7 +61,7 @@ async fn main() {
     let tickers_string = tickers.join(",");
 
     // Make the api request and handle data
-    match fetch_price(&client, &tickers_string, &config.api_key).await {
+    match api_client.fetch_price(&tickers_string).await {
         Ok(response) => {
             let mut table_rows = process_portfolio_data(&config.portfolio, &response, sort_order);
 
