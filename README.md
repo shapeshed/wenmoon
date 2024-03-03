@@ -80,6 +80,30 @@ wenmoon -c ~/.config/wenmoon/shitcoins.yml
 wenmoon -c ~/.config/wenmoon/vegas_fund.yml
 ```
 
+Sort the list based on hourly change
+
+```sh
+wenmoon -s h
+```
+
+Sort the list based on daily change
+
+```sh
+wenmoon -s d
+```
+
+Sort the list based on weekly change
+
+```sh
+wenmoon -s w
+```
+
+Sort the list based on monthly change
+
+```sh
+wenmoon -s m
+```
+
 If your list is long and you just want to see a single price `wenmoon` plays
 nice with UNIX tools such as `grep` or `ripgrep`.
 
