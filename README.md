@@ -28,7 +28,7 @@ cargo install --path .
 
 ## Configuration
 
-The following are supported as API providers
+The following are supported as data providers
 
 - [CoinMarketCap][7]
 - [CoinGecko][9]
