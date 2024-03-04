@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 use std::env;
 use std::fs;
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct PortfolioEntry {
     pub ticker: String,
     pub amount: Option<f64>,
@@ -11,8 +11,19 @@ pub struct PortfolioEntry {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Config {
-    pub api_key: String,
     pub portfolio: Vec<PortfolioEntry>,
+    pub coingecko: Option<CoinGecko>,
+    pub coinmarketcap: Option<CoinMarketCap>,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct CoinGecko {
+    pub api_key: String,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct CoinMarketCap {
+    pub api_key: String,
 }
 
 impl Config {

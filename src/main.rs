@@ -1,17 +1,16 @@
-mod api;
+mod coingecko;
+mod coinmarketcap;
 mod config;
 mod model;
 mod portfolio;
-use api::{CoinMarketCapClient, CryptoPriceFetcher};
+mod table;
+mod traits;
 use clap::{App, Arg};
+use coingecko::CoinGeckoClient;
+use coinmarketcap::CoinMarketCapClient;
 use config::{get_config_path, Config};
-use portfolio::{create_summary_row, process_portfolio_data};
 use std::env;
-use tabled::settings::{
-    object::{Columns, Object, Rows},
-    Alignment, Border, Margin, Padding, Style,
-};
-use tabled::Table;
+use table::display_table;
 
 #[tokio::main]
 async fn main() {
@@ -37,50 +36,41 @@ async fn main() {
         )
         .get_matches();
 
-    // Use the get_config_path function to get the path to the config file
     let config_path = get_config_path(matches.value_of("config"));
 
-    // Get the sort order if provided, defaulting to 'd' for daily
     let sort_order = matches.value_of("sort").unwrap_or("d");
 
-    // Load the config file
     let config = Config::load(&config_path).unwrap_or_else(|err| {
         eprintln!("Error loading config: {}", err);
         std::process::exit(1);
     });
 
-    // Initialise a reqwest client
-    let api_client = CoinMarketCapClient::new(config.api_key.clone());
+    if let Some(cg_config) = &config.coingecko {
+        let cg_client = CoinGeckoClient::new(
+            cg_config.api_key.clone(),
+            config.portfolio.clone(),
+            sort_order.to_string(),
+        );
 
-    // Collect the tickers to look up
-    let tickers: Vec<String> = config
-        .portfolio
-        .iter()
-        .map(|entry| entry.ticker.clone())
-        .collect();
-    let tickers_string = tickers.join(",");
-
-    // Make the api request and handle data
-    match api_client.fetch_price(&tickers_string).await {
-        Ok(response) => {
-            let mut table_rows = process_portfolio_data(&config.portfolio, &response, sort_order);
-
-            let summary_row = create_summary_row(&table_rows);
-            table_rows.push(summary_row);
-
-            let table = Table::new(&table_rows)
-                .with(Style::psql())
-                .with(Margin::new(1, 0, 1, 0))
-                .modify(
-                    Columns::new(1..).not(Columns::first()),
-                    Padding::new(5, 1, 0, 0),
-                )
-                .modify(Columns::new(1..).not(Columns::first()), Alignment::right())
-                .modify(Rows::last(), Border::new().set_top('-').set_bottom('-'))
-                .to_string();
-
-            println!("{}", table);
+        match cg_client.fetch_and_transform().await {
+            Ok(data) => {
+                println!("{}", display_table(data));
+            }
+            Err(e) => eprintln!("Error: {}", e),
         }
-        Err(err) => eprintln!("Error fetching prices: {}", err),
+    } else if let Some(cmc_config) = &config.coinmarketcap {
+        let cmc_client = CoinMarketCapClient::new(
+            cmc_config.api_key.clone(),
+            config.portfolio.clone(),
+            sort_order.to_string(),
+        );
+        match cmc_client.fetch_and_transform().await {
+            Ok(data) => {
+                println!("{}", display_table(data));
+            }
+            Err(e) => eprintln!("Error: {}", e),
+        }
+    } else {
+        eprintln!("No API key provided in the config.");
     }
 }
