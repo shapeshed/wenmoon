@@ -100,6 +100,7 @@ impl FetchAndTransform for CoinGeckoClient {
         self.client
             .get(&url)
             .header("x-cg-demo-api-key", &self.api_key)
+            // API returns 403 with default header
             .header("user-agent", "curl/7.54.1")
             .send()
             .await?

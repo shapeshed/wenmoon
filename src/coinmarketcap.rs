@@ -97,21 +97,6 @@ impl CoinMarketCapClient {
             .map_err(|e| Box::new(e) as Box<dyn std::error::Error>)?;
         Ok(transformed_data)
     }
-
-    // pub async fn get_quotes_latest(
-    //     &self,
-    //     tickers: &str,
-    // ) -> Result<QuotesLatestResponse, reqwest::Error> {
-    //     let url = format!("{}?symbol={}&convert={}", BASE_URL, tickers, CURRENCY);
-
-    //     self.client
-    //         .get(&url)
-    //         .header("X-CMC_PRO_API_KEY", &self.api_key)
-    //         .send()
-    //         .await?
-    //         .json::<QuotesLatestResponse>()
-    //         .await
-    // }
 }
 
 #[async_trait]
