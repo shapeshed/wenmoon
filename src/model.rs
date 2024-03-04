@@ -65,7 +65,7 @@ fn two_decimals(p: &f64) -> String {
     }
 }
 
-pub fn sort_table_rows(table_rows: &mut Vec<TableRow>, sort_order: &str) {
+pub fn sort_table_rows(table_rows: &mut [TableRow], sort_order: &str) {
     let sort_fn = match sort_order {
         "h" => |a: &TableRow, b: &TableRow| {
             b.hourly_percent_change
