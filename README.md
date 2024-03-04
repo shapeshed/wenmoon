@@ -36,8 +36,8 @@ The following are supported as data providers
 ### CoinMarketCap
 
 Obtain a [CoinMarketCap API key][8]. Create a file at
-`~/.config/wenmoon/config.yml` with the following format. Ticker values can be
-found by searching on [CoinMarketCap][9].
+`~/.config/wenmoon/config.yml`. Ticker values can be found by searching on
+[CoinMarketCap][7].
 
 `amount` and `entry_price` are optional fields if you want to compute the value
 and P&L of your position.
@@ -66,9 +66,8 @@ portfolio:
 ### CoinGecko
 
 Obtain a [CoinGecko API key][10]. Create a file at
-`~/.config/wenmoon/config.yml` with the following format. Ticker values can be
-found by searching on [CoinGecko][9] for the API ID field under Info for the
-coin you want to track.
+`~/.config/wenmoon/config.yml`. Ticker values can be found by searching for the
+coin on [CoinGecko][9] and finding the API ID field under Info.
 
 `amount` and `entry_price` are optional fields if you want to compute the value
 and P&L of your position.
@@ -93,11 +92,6 @@ portfolio:
     amount: 1053.34
     entry_price: 3.95
 ```
-
-<!-- dprint-ignore-start -->
-> [!TIP] 
-> If you would like to change the location of the config file pass the `-c` argument with the location of the config file.
-<!-- dprint-ignore-end -->
 
 ## Usage
 
