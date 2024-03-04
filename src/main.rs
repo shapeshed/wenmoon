@@ -3,36 +3,14 @@ mod coinmarketcap;
 mod config;
 mod model;
 mod portfolio;
+mod table;
 mod traits;
 use clap::{App, Arg};
 use coingecko::CoinGeckoClient;
 use coinmarketcap::CoinMarketCapClient;
 use config::{get_config_path, Config};
-use model::TableRow;
-use portfolio::create_summary_row;
 use std::env;
-use tabled::settings::{
-    object::{Columns, Object, Rows},
-    Alignment, Border, Margin, Padding, Style,
-};
-use tabled::Table;
-
-fn display_table(mut data: Vec<TableRow>) -> String {
-    let summary_row = create_summary_row(&data);
-    data.push(summary_row);
-    let table = Table::new(&data)
-        .with(Style::psql())
-        .with(Margin::new(1, 0, 1, 0))
-        .modify(
-            Columns::new(1..).not(Columns::first()),
-            Padding::new(5, 1, 0, 0),
-        )
-        .modify(Columns::new(1..).not(Columns::first()), Alignment::right())
-        .modify(Rows::last(), Border::new().set_top('-').set_bottom('-'))
-        .to_string();
-
-    table
-}
+use table::display_table;
 
 #[tokio::main]
 async fn main() {
@@ -67,14 +45,14 @@ async fn main() {
         std::process::exit(1);
     });
 
-    if let Some(coingecko_config) = &config.coingecko {
-        let coingecko_client = CoinGeckoClient::new(
-            coingecko_config.api_key.clone(),
+    if let Some(cg_config) = &config.coingecko {
+        let cg_client = CoinGeckoClient::new(
+            cg_config.api_key.clone(),
             config.portfolio.clone(),
             sort_order.to_string(),
         );
 
-        match coingecko_client.fetch_and_transform().await {
+        match cg_client.fetch_and_transform().await {
             Ok(data) => {
                 println!("{}", display_table(data));
             }
