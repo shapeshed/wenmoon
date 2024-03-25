@@ -33,7 +33,7 @@ nix = { version = "0.28.0", default-features = false, features = [
 ] }
 
 [target.'cfg(windows)'.dependencies]
-which = "6.0.0"
+which = "6.0.1"
 
 [profile.release]
 codegen-units = 1
