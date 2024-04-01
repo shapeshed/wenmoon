@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2014-04-01
+
+### Changed
+
+- Upgrade clap to 0.4.x
+- Use derive instead of builder for clap
+
 ## [0.2.0] - 2014-03-04
 
 ### Added
