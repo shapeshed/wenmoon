@@ -1,6 +1,7 @@
 use serde::{Deserialize, Serialize};
 use std::env;
 use std::fs;
+use std::path::PathBuf;
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct PortfolioEntry {
@@ -34,9 +35,9 @@ impl Config {
     }
 }
 
-pub fn get_config_path(config_arg: Option<&str>) -> String {
+pub fn get_config_path(config_arg: Option<&PathBuf>) -> String {
     if let Some(config_path) = config_arg {
-        return config_path.to_string();
+        return config_path.display().to_string();
     }
 
     let xdg_config_home = env::var("XDG_CONFIG_HOME")
