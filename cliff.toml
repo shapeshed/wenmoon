@@ -1,0 +1,97 @@
+# git-cliff ~ default configuration file
+# https://git-cliff.org/docs/configuration
+#
+# Lines starting with "#" are comments.
+# Configuration options are organized into tables and keys.
+# See documentation for more information on available options.
+
+[remote.github]
+owner = "shapeshed"
+repo  = "gasstation"
+
+[changelog]
+# template for the changelog header
+header = """
+# Changelog\n
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).\n
+"""
+# template for the changelog body
+# https://keats.github.io/tera/docs/#introduction
+body = """
+{% if version %}## [{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }}
+{% else %}## [unreleased]{% endif %}
+{% for group, commits in commits | group_by(attribute="group") %}### {{ group | striptags | trim | upper_first }} \n
+{% for commit in commits -%}
+- {% if commit.scope %}*({{ commit.scope }})* {% endif %}\
+  {% if commit.breaking %}[**breaking**] {% endif %}\
+  [`{{ commit.id | truncate(length=7, end="") }}`](https://github.com/{{ remote.github.owner }}/{{ remote.github.repo }}/commit/{{ commit.id }}) \
+  {{ commit.message | upper_first | split(pat="\n") | first }}
+{% endfor %}
+{% endfor %}
+"""
+# template for the changelog footer
+footer = """
+{%- macro remote_url() -%}
+  https://github.com/{{ remote.github.owner }}/{{ remote.github.repo }}
+{%- endmacro -%}
+
+{% for release in releases -%}
+    {% if release.version -%}
+        {% if release.previous.version -%}
+            [{{ release.version | trim_start_matches(pat="v") }}]: \
+                {{ self::remote_url() }}/compare/{{ release.previous.version }}..{{ release.version }}
+        {% else -%}
+            [{{ release.version | trim_start_matches(pat="v") }}]: \
+                {{ self::remote_url() }}/releases/tag/{{ release.version }}
+        {% endif -%}
+    {% else -%}
+        [unreleased]: {{ self::remote_url() }}/compare/{{ release.previous.version }}..HEAD
+    {% endif -%}
+{% endfor %}
+"""
+# remove the leading and trailing s
+trim = true
+# postprocessors
+postprocessors = [
+  # { pattern = '<REPO>', replace = "https://github.com/orhun/git-cliff" }, # replace repository URL
+]
+# render body even when there are no releases to process
+# render_always = true
+# output file path
+# output = "test.md"
+
+[git]
+# parse the commits based on https://www.conventionalcommits.org
+conventional_commits = false
+# filter out the commits that are not conventional
+filter_unconventional = false
+# process each line of a commit as an individual commit
+split_commits = false
+# regex for preprocessing the commit messages
+commit_preprocessors = [
+  # Replace issue numbers
+  #{ pattern = '\((\w+\s)?#([0-9]+)\)', replace = "([#${2}](<REPO>/issues/${2}))"},
+  # Check spelling of the commit with https://github.com/crate-ci/typos
+  # If the spelling is incorrect, it will be automatically fixed.
+  #{ pattern = '.*', replace_command = 'typos --write-changes -' },
+]
+# regex for parsing and grouping commits
+commit_parsers = [
+  { message = "^Add.*$", group = "Added", order = 0 },
+  { message = "^(Change|Refactor|Update).*$", group = "Changed", order = 1 },
+  { message = "^Deprecate.*$", group = "Deprecated", order = 3 },
+  { message = "^Remove.*$", group = "Removed", order = 4 },
+  { message = "^Fix.*$", group = "Fixed", order = 5 },
+  # { message = "^Bump.*$", group = "Security", order = 6 },
+  { message = ".*Bump.*", group = "Security", order = 6 },
+  { message = ".*", group = "Others", order = 999 },
+]
+# filter out the commits that are not matched by commit parsers
+filter_commits = false
+# sort the tags topologically
+topo_order = false
+# sort the commits inside sections by oldest/newest order
+sort_commits = "oldest"
