@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.4] - 2025-02-10
+
+### Changed
+
+- [`37d13dc`](https://github.com/shapeshed/wenmoon/commit/37d13dc4ec8ab78a70f6dc09d2e09acb621a8333) Update api changes for tabled 0.18.0
+
+### Security
+
+- [`8d9b786`](https://github.com/shapeshed/wenmoon/commit/8d9b786a2d2333d4260e982d3b75e04e2146420a) Bump tabled from 0.16.0 to 0.18.0
+
 ## [0.3.3] - 2025-02-10
 
 ### Changed
@@ -14,6 +24,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - [`aabb03a`](https://github.com/shapeshed/wenmoon/commit/aabb03af992dca1d16739fc53995119ef66dbd9b) Fix macos build
+
+### Others
+
+- [`feba42b`](https://github.com/shapeshed/wenmoon/commit/feba42b9871189a3003a73a49961c01c42ea495d) Release 0.3.3
 
 ## [0.3.2] - 2025-02-10
 
@@ -171,6 +185,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [`b39e90c`](https://github.com/shapeshed/wenmoon/commit/b39e90cf5162e6925bfb1e823bbbb5d03941b703) Initial commit
 
+[0.3.4]: https://github.com/shapeshed/wenmoon/compare/0.3.3..0.3.4
 [0.3.3]: https://github.com/shapeshed/wenmoon/compare/0.3.2..0.3.3
 [0.3.2]: https://github.com/shapeshed/wenmoon/compare/0.3.0..0.3.2
 [0.3.0]: https://github.com/shapeshed/wenmoon/compare/0.2.0..0.3.0
