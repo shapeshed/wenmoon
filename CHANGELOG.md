@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.3.1] - 2025-02-10
+## [0.3.2] - 2025-02-10
 
 ### Changed
 
@@ -14,6 +14,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - [`eb3c71a`](https://github.com/shapeshed/wenmoon/commit/eb3c71ad4fba40bdb59b2672abb72dcd925ff04c) Fix CHANGELOG
+- [`3127b90`](https://github.com/shapeshed/wenmoon/commit/3127b903f9b3e68919458a1bd55f1eeff9dc1d10) Fix CHANGELOG
+
+### Others
+
+- [`cf5075e`](https://github.com/shapeshed/wenmoon/commit/cf5075ee65cc8dbd2b1ab04c2a88390f1367e917) Release 0.3.2
 
 ### Security
 
@@ -71,6 +76,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [`0b15a59`](https://github.com/shapeshed/wenmoon/commit/0b15a59e9a1db1298577e835261d7e9b0317d6ba) Bump colored from 2.1.0 to 3.0.0 (#98)
 - [`7977650`](https://github.com/shapeshed/wenmoon/commit/7977650163fcd11b69b3c2872e23beaff951f297) Bump serde_json from 1.0.133 to 1.0.138 (#101)
 - [`9dd62b7`](https://github.com/shapeshed/wenmoon/commit/9dd62b70daaaecd4bedcd8e307b910c6ecceeb38) Bump which from 7.0.0 to 7.0.2 (#102)
+- [`d178b1d`](https://github.com/shapeshed/wenmoon/commit/d178b1db0f5e30bc5afffd517fce160ab5fb1bfd) Bump rust version
 
 ## [0.3.0] - 2024-04-01
 
@@ -155,7 +161,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [`b39e90c`](https://github.com/shapeshed/wenmoon/commit/b39e90cf5162e6925bfb1e823bbbb5d03941b703) Initial commit
 
-[0.3.1]: https://github.com/shapeshed/wenmoon/compare/0.3.0..0.3.1
+[0.3.2]: https://github.com/shapeshed/wenmoon/compare/0.3.0..0.3.2
 [0.3.0]: https://github.com/shapeshed/wenmoon/compare/0.2.0..0.3.0
 [0.2.0]: https://github.com/shapeshed/wenmoon/compare/0.1.0..0.2.0
 [0.1.0]: https://github.com/shapeshed/wenmoon/compare/0.0.2..0.1.0
