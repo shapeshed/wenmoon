@@ -19,7 +19,7 @@ pub fn display_table(mut data: Vec<TableRow>) -> String {
             Padding::new(5, 1, 0, 0),
         )
         .modify(Columns::new(1..).not(Columns::first()), Alignment::right())
-        .modify(Rows::last(), Border::new().set_top('-').set_bottom('-'))
+        .modify(Rows::last(), Border::new().top('-').bottom('-'))
         .to_string();
 
     table
