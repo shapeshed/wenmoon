@@ -7,7 +7,7 @@
 
 [remote.github]
 owner = "shapeshed"
-repo  = "gasstation"
+repo = "wenmoon"
 
 [changelog]
 # template for the changelog header
