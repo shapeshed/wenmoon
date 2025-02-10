@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.3] - 2025-02-10
+
+### Changed
+
+- [`1c051de`](https://github.com/shapeshed/wenmoon/commit/1c051debb7f9acd9c6732bbf7e98d8a1e156588f) Update CHANGELOG
+
+### Fixed
+
+- [`aabb03a`](https://github.com/shapeshed/wenmoon/commit/aabb03af992dca1d16739fc53995119ef66dbd9b) Fix macos build
+
 ## [0.3.2] - 2025-02-10
 
 ### Changed
@@ -161,6 +171,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [`b39e90c`](https://github.com/shapeshed/wenmoon/commit/b39e90cf5162e6925bfb1e823bbbb5d03941b703) Initial commit
 
+[0.3.3]: https://github.com/shapeshed/wenmoon/compare/0.3.2..0.3.3
 [0.3.2]: https://github.com/shapeshed/wenmoon/compare/0.3.0..0.3.2
 [0.3.0]: https://github.com/shapeshed/wenmoon/compare/0.2.0..0.3.0
 [0.2.0]: https://github.com/shapeshed/wenmoon/compare/0.1.0..0.2.0
