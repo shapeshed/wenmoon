@@ -7,25 +7,25 @@ use separator::FixedPlaceSeparatable;
 pub struct TableRow {
     #[tabled(rename = "Ticker")]
     pub ticker: String,
-    #[tabled(display_with = "display_price", rename = "Price")]
+    #[tabled(display = "display_price", rename = "Price")]
     pub price: Option<f64>,
-    #[tabled(display_with = "two_decimals", rename = "1hr %")]
+    #[tabled(display = "two_decimals", rename = "1hr %")]
     pub hourly_percent_change: f64,
-    #[tabled(display_with = "option_two_decimals_coloured", rename = "1d %")]
+    #[tabled(display = "option_two_decimals_coloured", rename = "1d %")]
     pub daily_percent_change: Option<f64>,
-    #[tabled(display_with = "option_two_decimals_coloured", rename = "1w %")]
+    #[tabled(display = "option_two_decimals_coloured", rename = "1w %")]
     pub weekly_percent_change: Option<f64>,
-    #[tabled(display_with = "option_two_decimals_coloured", rename = "1m %")]
+    #[tabled(display = "option_two_decimals_coloured", rename = "1m %")]
     pub monthly_percent_change: Option<f64>,
     #[tabled(skip)]
     pub entry_price: Option<f64>,
     #[tabled(skip)]
     pub amount: Option<f64>,
-    #[tabled(display_with = "display_financial_formatted", rename = "Value $")]
+    #[tabled(display = "display_financial_formatted", rename = "Value $")]
     pub value: Option<f64>,
-    #[tabled(display_with = "display_financial_formatted", rename = "P&L")]
+    #[tabled(display = "display_financial_formatted", rename = "P&L")]
     pub pl: Option<f64>,
-    #[tabled(display_with = "option_two_decimals_coloured", rename = "P&L %")]
+    #[tabled(display = "option_two_decimals_coloured", rename = "P&L %")]
     pub pl_percent: Option<f64>,
 }
 
