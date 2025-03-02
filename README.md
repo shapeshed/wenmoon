@@ -36,66 +36,84 @@ The following are supported as data providers
 ### CoinMarketCap
 
 Obtain a [CoinMarketCap API key][8]. Create a file at
-`~/.config/wenmoon/config.yml`. Ticker values can be found by searching on
+`~/.config/wenmoon/config.toml`. Ticker values can be found by searching on
 [CoinMarketCap][7].
 
 `amount` and `entry_price` are optional fields if you want to compute the value
 and P&L of your position.
 
-```yaml
-coinmarketcap:
-  api_key: [YOUR_API_KEY_HERE]
-portfolio:
-  - ticker: AAVE
-    amount: 100.02
-    entry_price: 100.02
-  - ticker: MATIC
-    amount: 0.643
-    entry_price: 1.22
-  - ticker: SOL
-    amount: 98.45
-    entry_price: 150
-  - ticker: OSMO
-    amount: 265.84
-    entry_price: 1.45
-  - ticker: KUJI
-    amount: 1053.34
-    entry_price: 3.95
+```toml
+[coinmarketcap]
+api_key: [YOUR_API_KEY_HERE]
+
+[[portfolio]]
+ticker: AAVE
+amount: 100.02
+entry_price: 100.02
+
+[[portfolio]]
+ticker: MATIC
+amount: 0.643
+entry_price: 1.22
+
+[[portfolio]]
+ticker: SOL
+amount: 98.45
+entry_price: 150
+
+[[portfolio]]
+ticker: OSMO
+amount: 265.84
+entry_price: 1.45
+
+[[portfolio]]
+ticker: KUJI
+amount: 1053.34
+entry_price: 3.95
 ```
 
 ### CoinGecko
 
 Obtain a [CoinGecko API key][10]. Create a file at
-`~/.config/wenmoon/config.yml`. Ticker values can be found by searching for the
+`~/.config/wenmoon/config.toml`. Ticker values can be found by searching for the
 coin on [CoinGecko][9] and finding the API ID field under Info.
 
 `amount` and `entry_price` are optional fields if you want to compute the value
 and P&L of your position.
 
 ```yaml
-coingecko:
-  api_key: [YOUR_API_KEY_HERE]
-portfolio:
-  - ticker: aave
-    amount: 100.02
-    entry_price: 100.02
-  - ticker: matic-network
-    amount: 0.643
-    entry_price: 1.22
-  - ticker: solana
-    amount: 98.45
-    entry_price: 150
-  - ticker: osmosis
-    amount: 265.84
-    entry_price: 1.45
-  - ticker: kujira
-    amount: 1053.34
-    entry_price: 3.95
+[coingecko]
+api_key: [YOUR_API_KEY_HERE]
+
+[[portfolio]]
+ticker: aave
+amount: 100.02
+
+[[portfolio]]
+entry_price: 100.02
+ticker: matic-network
+amount: 0.643
+
+[[portfolio]]
+entry_price: 1.22
+ticker: solana
+amount: 98.45
+entry_price: 150
+
+[[portfolio]]
+ticker: osmosis
+amount: 265.84
+entry_price: 1.45
+
+[[portfolio]]
+ticker: kujira
+amount: 1053.34
+entry_price: 3.95
 ```
 
 ## Usage
 
-Vanilla usage. Will read file from `~/.config/wenmoon/config.yml`
+Vanilla usage. Will read file from `~/.config/wenmoon/config.toml`
 
 ```sh
 wenmoon
@@ -104,15 +122,15 @@ wenmoon
 Custom config file. Pass the `-c` flag followed by the path to the file
 
 ```sh
-wenmoon -c ./path/to/custom/config.yml
+wenmoon -c ./path/to/custom/config.toml
 ```
 
 Multiple portfolios and watchlists using different files
 
 ```sh
-wenmoon -c ~/.config/wenmoon/watchlist.yml
-wenmoon -c ~/.config/wenmoon/shitcoins.yml
-wenmoon -c ~/.config/wenmoon/vegas_fund.yml
+wenmoon -c ~/.config/wenmoon/watchlist.toml
+wenmoon -c ~/.config/wenmoon/shitcoins.toml
+wenmoon -c ~/.config/wenmoon/vegas_fund.toml
 ```
 
 Sorting the list on hourly, daily, weekly and monthly change
