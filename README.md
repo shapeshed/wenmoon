@@ -44,32 +44,32 @@ and P&L of your position.
 
 ```toml
 [coinmarketcap]
-api_key: [YOUR_API_KEY_HERE]
+api_key = "YOUR_API_KEY_HERE"
 
 [[portfolio]]
-ticker: AAVE
-amount: 100.02
-entry_price: 100.02
+ticker = "AAVE"
+amount = "100.02"
+entry_price = "100.02"
 
 [[portfolio]]
-ticker: MATIC
-amount: 0.643
-entry_price: 1.22
+ticker = "MATIC"
+amount = "0.643"
+entry_price = "1.22"
 
 [[portfolio]]
-ticker: SOL
-amount: 98.45
-entry_price: 150
+ticker = "SOL"
+amount = "98.45"
+entry_price = "150"
 
 [[portfolio]]
-ticker: OSMO
-amount: 265.84
-entry_price: 1.45
+ticker = "OSMO"
+amount = "265.84"
+entry_price = "1.45"
 
 [[portfolio]]
-ticker: KUJI
-amount: 1053.34
-entry_price: 3.95
+ticker = "KUJI"
+amount = "1053.34"
+entry_price = "3.95"
 ```
 
 ### CoinGecko
@@ -81,34 +81,34 @@ coin on [CoinGecko][9] and finding the API ID field under Info.
 `amount` and `entry_price` are optional fields if you want to compute the value
 and P&L of your position.
 
-```yaml
+```toml
 [coingecko]
-api_key: [YOUR_API_KEY_HERE]
+api_key = "YOUR_API_KEY_HERE"
 
 [[portfolio]]
-ticker: aave
-amount: 100.02
+ticker = "aave"
+amount = "100.02"
 
 [[portfolio]]
-entry_price: 100.02
-ticker: matic-network
-amount: 0.643
+entry_price = "100.02"
+ticker = "matic-network"
+amount = "0.643"
 
 [[portfolio]]
-entry_price: 1.22
-ticker: solana
-amount: 98.45
-entry_price: 150
+entry_price = "1.22"
+ticker = "solana"
+amount = "98.45"
+entry_price = "150"
 
 [[portfolio]]
-ticker: osmosis
-amount: 265.84
-entry_price: 1.45
+ticker = "osmosis"
+amount = "265.84"
+entry_price = "1.45"
 
 [[portfolio]]
-ticker: kujira
-amount: 1053.34
-entry_price: 3.95
+ticker = "kujira"
+amount = "1053.34"
+entry_price = "3.95"
 ```
 
 ## Usage
