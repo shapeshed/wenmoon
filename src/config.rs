@@ -30,7 +30,7 @@ pub struct CoinMarketCap {
 impl Config {
     pub fn load(config_path: &str) -> Result<Self, Box<dyn std::error::Error>> {
         let config_str = fs::read_to_string(config_path)?;
-        let config: Self = serde_yaml::from_str(&config_str)?;
+        let config: Self = toml::from_str(&config_str)?;
         Ok(config)
     }
 }
@@ -43,5 +43,5 @@ pub fn get_config_path(config_arg: Option<&PathBuf>) -> String {
     let xdg_config_home = env::var("XDG_CONFIG_HOME")
         .unwrap_or_else(|_| env::var("HOME").unwrap_or_else(|_| ".".into()) + "/.config");
 
-    format!("{}/wenmoon/config.yml", xdg_config_home)
+    format!("{}/wenmoon/config.toml", xdg_config_home)
 }
