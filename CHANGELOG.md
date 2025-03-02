@@ -5,15 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.3.4] - 2025-02-10
+## [0.4.0] - 2025-03-02
 
 ### Changed
 
-- [`37d13dc`](https://github.com/shapeshed/wenmoon/commit/37d13dc4ec8ab78a70f6dc09d2e09acb621a8333) Update api changes for tabled 0.18.0
+- [`3c386c7`](https://github.com/shapeshed/wenmoon/commit/3c386c7b34e7b49d0bcdf5048a25f65587d7fdc7) Refactor config to use toml
+- [`dae421d`](https://github.com/shapeshed/wenmoon/commit/dae421dc64dd552a9f2ae4c34ff116aa029d4833) Update README for toml
 
 ### Security
 
-- [`8d9b786`](https://github.com/shapeshed/wenmoon/commit/8d9b786a2d2333d4260e982d3b75e04e2146420a) Bump tabled from 0.16.0 to 0.18.0
+- [`a4e665c`](https://github.com/shapeshed/wenmoon/commit/a4e665c6052707a44fd4a280850b5b9e7e922bfd) Bump tabled from 0.16.0 to 0.18.0 (#103)
+- [`fa80953`](https://github.com/shapeshed/wenmoon/commit/fa8095370a07acb9fc86f5fae7fba651f067f6a2) Bump clap from 4.5.23 to 4.5.29 (#108)
+- [`65c0f16`](https://github.com/shapeshed/wenmoon/commit/65c0f16a9cf00ce9ebf2298e96af172efc5ee448) Bump tokio from 1.42.0 to 1.43.0 (#107)
+- [`0308162`](https://github.com/shapeshed/wenmoon/commit/0308162e5df7cfd10edcdf04fedcd74558209351) Bump reqwest from 0.12.9 to 0.12.12 (#106)
+- [`060bfbd`](https://github.com/shapeshed/wenmoon/commit/060bfbd0b14badd23d66e66e8d0e4284e9dc199c) Bump openssl from 0.10.68 to 0.10.71 (#104)
+- [`60384f5`](https://github.com/shapeshed/wenmoon/commit/60384f55082fd77ae620133024b22cfbe6690e8e) Bump async-trait from 0.1.83 to 0.1.86 (#105)
+- [`0814145`](https://github.com/shapeshed/wenmoon/commit/081414594bb1f510aa855cbbc8c920f3a23672ec) Bump serde from 1.0.217 to 1.0.218 (#111)
+- [`e044c34`](https://github.com/shapeshed/wenmoon/commit/e044c343e3d3f36709f24a17dfbf97f2193458ec) Bump clap from 4.5.29 to 4.5.30 (#110)
+- [`f27eb56`](https://github.com/shapeshed/wenmoon/commit/f27eb5654db50e794193dfcf3e042ac548d87ff1) Bump serde_json from 1.0.138 to 1.0.139 (#109)
 
 ## [0.3.3] - 2025-02-10
 
@@ -185,7 +194,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [`b39e90c`](https://github.com/shapeshed/wenmoon/commit/b39e90cf5162e6925bfb1e823bbbb5d03941b703) Initial commit
 
-[0.3.4]: https://github.com/shapeshed/wenmoon/compare/0.3.3..0.3.4
+[0.4.0]: https://github.com/shapeshed/wenmoon/compare/0.3.3..0.4.0
 [0.3.3]: https://github.com/shapeshed/wenmoon/compare/0.3.2..0.3.3
 [0.3.2]: https://github.com/shapeshed/wenmoon/compare/0.3.0..0.3.2
 [0.3.0]: https://github.com/shapeshed/wenmoon/compare/0.2.0..0.3.0
