@@ -29,7 +29,7 @@ async fn main() {
     let config_path = get_config_path(cli.config.as_ref());
 
     let config = Config::load(&config_path).unwrap_or_else(|err| {
-        eprintln!("Error loading config: {}", err);
+        eprintln!("Error loading config: {err}");
         std::process::exit(1);
     });
 
@@ -44,7 +44,7 @@ async fn main() {
             Ok(data) => {
                 println!("{}", display_table(data));
             }
-            Err(e) => eprintln!("Error: {}", e),
+            Err(e) => eprintln!("Error: {e}"),
         }
     } else if let Some(cmc_config) = &config.coinmarketcap {
         let cmc_client = CoinMarketCapClient::new(
@@ -56,7 +56,7 @@ async fn main() {
             Ok(data) => {
                 println!("{}", display_table(data));
             }
-            Err(e) => eprintln!("Error: {}", e),
+            Err(e) => eprintln!("Error: {e}"),
         }
     } else {
         eprintln!("No API key provided in the config.");

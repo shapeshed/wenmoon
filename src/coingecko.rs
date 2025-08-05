@@ -93,8 +93,7 @@ impl CoinGeckoClient {
 impl FetchAndTransform for CoinGeckoClient {
     async fn fetch_data(&self, ids: &str) -> Result<String, reqwest::Error> {
         let url = format!(
-            "{}?ids={}&vs_currency={}&price_change_percentage=1h%2C24h%2C7d%2C30d",
-            BASE_URL, ids, CURRENCY
+            "{BASE_URL}?ids={ids}&vs_currency={CURRENCY}&price_change_percentage=1h%2C24h%2C7d%2C30d"
         );
 
         self.client
