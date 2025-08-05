@@ -43,5 +43,5 @@ pub fn get_config_path(config_arg: Option<&PathBuf>) -> String {
     let xdg_config_home = env::var("XDG_CONFIG_HOME")
         .unwrap_or_else(|_| env::var("HOME").unwrap_or_else(|_| ".".into()) + "/.config");
 
-    format!("{}/wenmoon/config.toml", xdg_config_home)
+    format!("{xdg_config_home}/wenmoon/config.toml")
 }

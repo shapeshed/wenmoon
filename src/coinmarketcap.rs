@@ -102,7 +102,7 @@ impl CoinMarketCapClient {
 #[async_trait]
 impl FetchAndTransform for CoinMarketCapClient {
     async fn fetch_data(&self, tickers: &str) -> Result<String, reqwest::Error> {
-        let url = format!("{}?symbol={}&convert={}", BASE_URL, tickers, CURRENCY);
+        let url = format!("{BASE_URL}?symbol={tickers}&convert={CURRENCY}");
 
         self.client
             .get(&url)

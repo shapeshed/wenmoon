@@ -31,9 +31,9 @@ pub struct TableRow {
 
 fn option_two_decimals_coloured(o: &Option<f64>) -> String {
     match o {
-        Some(s) if *s > 0.0 => format!("{:.2}", s).green().to_string(),
-        Some(s) if *s < 0.0 => format!("{:.2}", s).red().to_string(),
-        Some(s) => format!("{:.2}", s).to_string().bright_black().to_string(),
+        Some(s) if *s > 0.0 => format!("{s:.2}").green().to_string(),
+        Some(s) if *s < 0.0 => format!("{s:.2}").red().to_string(),
+        Some(s) => format!("{s:.2}").to_string().bright_black().to_string(),
         None => "-".to_string().bright_black().to_string(),
     }
 }
@@ -52,16 +52,16 @@ fn display_financial_formatted(o: &Option<f64>) -> String {
 
 fn display_price(p: &Option<f64>) -> String {
     match p {
-        Some(p) => format!("{:.3}", p),
+        Some(p) => format!("{p:.3}"),
         None => "-".to_string().bright_black().to_string(),
     }
 }
 
 fn two_decimals(p: &f64) -> String {
     if *p > 0.0 {
-        format!("{:.2}", p).green().to_string()
+        format!("{p:.2}").green().to_string()
     } else {
-        format!("{:.2}", p).red().to_string()
+        format!("{p:.2}").red().to_string()
     }
 }
 
