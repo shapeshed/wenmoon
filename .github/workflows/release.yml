@@ -96,7 +96,7 @@ jobs:
       - name: Create release
         if: |
           github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'chore(release)')
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           draft: true
           files: |
@@ -136,7 +136,7 @@ jobs:
             awk -v version="$version" '$0 ~ "## \\[" version "\\]"{flag=1;next} /## \[/{flag=0}flag' CHANGELOG.md > "${GITHUB_WORKSPACE}/CHANGELOG_SECTION.txt"
 
         - name: Create release and upload checksums and artifacts
-          uses: softprops/action-gh-release@v1
+          uses: softprops/action-gh-release@v2
           with:
             body_path: ${{ github.workspace }}/CHANGELOG_SECTION.txt
             files: |
