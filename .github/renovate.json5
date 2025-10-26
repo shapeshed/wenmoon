@@ -1,0 +1,59 @@
+{
+  // Renovate schema for validation
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+
+  // Extend from standard and convenience presets
+  extends: [
+    "config:base",
+    ":semanticCommits",
+    ":dependencyDashboard",
+    ":rebaseStalePrs",
+    ":prConcurrentLimit10",
+    "schedule:daily", // runs daily before 5am UTC
+  ],
+
+  // Always create an onboarding PR when configuration changes
+  onboarding: true,
+  requireConfig: false,
+
+  // Apply helpful labels to all PRs
+  labels: ["dependencies", "renovate"],
+
+  // Enable both Cargo (Rust) and GitHub Actions updates
+  enabledManagers: ["cargo", "github-actions"],
+
+  // Regex rule to automatically bump `rust-version` in Cargo.toml
+  regexManagers: [
+    {
+      fileMatch: ["^Cargo\\.toml$"],
+      matchStrings: ["rust-version\\s*=\\s*\"(?<currentValue>.*?)\""],
+      depNameTemplate: "rust",
+      datasourceTemplate: "rust-version",
+    },
+  ],
+
+  // Group and merge rules for dependencies
+  packageRules: [
+    {
+      matchManagers: ["cargo"],
+      groupName: "rust dependencies",
+      groupSlug: "rust-deps",
+      matchUpdateTypes: ["minor", "patch"],
+      automerge: true,
+    },
+    {
+      matchManagers: ["cargo"],
+      matchUpdateTypes: ["major"],
+      automerge: false,
+    },
+  ],
+
+  // Ensure consistent scheduling across environments
+  timezone: "UTC",
+
+  // Adds a Renovate Dependency Dashboard issue
+  dependencyDashboard: true,
+
+  // Custom commit body for PRs
+  commitBody: "This PR updates Rust dependencies as per Cargo.toml / Cargo.lock",
+}
