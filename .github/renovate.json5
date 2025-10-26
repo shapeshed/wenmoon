@@ -24,7 +24,7 @@
       matchStrings: [
                 "rust-version\\s*=\\s*\"(?<currentValue>.*?)\""
             ],
-      depNameTemplate: "rust", // 👈 same dep name
+      depNameTemplate: "rust",
       datasourceTemplate: "rust-version"
         },
         {
@@ -34,7 +34,7 @@
       matchStrings: [
                 "channel\\s*=\\s*\"(?<currentValue>.*?)\""
             ],
-      depNameTemplate: "rust", // 👈 same dep name = same version
+      depNameTemplate: "rust",
       datasourceTemplate: "rust-version"
         }
     ],
