@@ -5,7 +5,6 @@
     ':dependencyDashboard',
     ':rebaseStalePrs',
     ':prConcurrentLimit10',
-    'schedule:daily',
   ],
   onboarding: true,
   labels: [
