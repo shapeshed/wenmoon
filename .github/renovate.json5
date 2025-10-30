@@ -1,66 +1,68 @@
 {
-  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   extends: [
-        "config:base",
-        ":dependencyDashboard",
-        ":rebaseStalePrs",
-        ":prConcurrentLimit10",
-        "schedule:daily",
-    ],
+    'config:recommended',
+    ':dependencyDashboard',
+    ':rebaseStalePrs',
+    ':prConcurrentLimit10',
+    'schedule:daily',
+  ],
   onboarding: true,
   labels: [
-        "dependencies",
-        "renovate"
-    ],
+    'dependencies',
+    'renovate',
+  ],
   enabledManagers: [
-        "cargo",
-        "github-actions"
-    ],
-  regexManagers: [
-        {
-      fileMatch: [
-                "^Cargo\\.toml$"
-            ],
+    'cargo',
+    'github-actions',
+  ],
+  customManagers: [
+    {
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^Cargo\\.toml$/',
+      ],
       matchStrings: [
-                "rust-version\\s*=\\s*\"(?<currentValue>.*?)\""
-            ],
-      depNameTemplate: "rust",
-      datasourceTemplate: "rust-version"
-        },
-        {
-      fileMatch: [
-                "^rust-toolchain(?:\\.toml)?$"
-            ],
+        'rust-version\\s*=\\s*"(?<currentValue>.*?)"',
+      ],
+      depNameTemplate: 'rust',
+      datasourceTemplate: 'rust-version',
+    },
+    {
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^rust-toolchain(?:\\.toml)?$/',
+      ],
       matchStrings: [
-                "channel\\s*=\\s*\"(?<currentValue>.*?)\""
-            ],
-      depNameTemplate: "rust",
-      datasourceTemplate: "rust-version"
-        }
-    ],
+        'channel\\s*=\\s*"(?<currentValue>.*?)"',
+      ],
+      depNameTemplate: 'rust',
+      datasourceTemplate: 'rust-version',
+    },
+  ],
   packageRules: [
-        {
+    {
       matchManagers: [
-                "cargo"
-            ],
-      groupName: "rust dependencies",
-      groupSlug: "rust-deps",
+        'cargo',
+      ],
+      groupName: 'rust dependencies',
+      groupSlug: 'rust-deps',
       matchUpdateTypes: [
-                "minor",
-                "patch"
-            ],
+        'minor',
+        'patch',
+      ],
       automerge: false,
-        },
-        {
+    },
+    {
       matchManagers: [
-                "cargo"
-            ],
+        'cargo',
+      ],
       matchUpdateTypes: [
-                "major"
-            ],
+        'major',
+      ],
       automerge: false,
-        },
-    ],
-  timezone: "UTC",
+    },
+  ],
+  timezone: 'UTC',
   dependencyDashboard: true,
 }
