@@ -14,30 +14,6 @@
     'cargo',
     'github-actions',
   ],
-  customManagers: [
-    {
-      customType: 'regex',
-      managerFilePatterns: [
-        '/^Cargo\\.toml$/',
-      ],
-      matchStrings: [
-        'rust-version\\s*=\\s*"(?<currentValue>.*?)"',
-      ],
-      depNameTemplate: 'rust',
-      datasourceTemplate: 'rust-version',
-    },
-    {
-      customType: 'regex',
-      managerFilePatterns: [
-        '/^rust-toolchain(?:\\.toml)?$/',
-      ],
-      matchStrings: [
-        'channel\\s*=\\s*"(?<currentValue>.*?)"',
-      ],
-      depNameTemplate: 'rust',
-      datasourceTemplate: 'rust-version',
-    },
-  ],
   timezone: 'UTC',
   dependencyDashboard: true,
 }
