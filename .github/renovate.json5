@@ -38,29 +38,6 @@
       datasourceTemplate: 'rust-version',
     },
   ],
-  packageRules: [
-    {
-      matchManagers: [
-        'cargo',
-      ],
-      groupName: 'rust dependencies',
-      groupSlug: 'rust-deps',
-      matchUpdateTypes: [
-        'minor',
-        'patch',
-      ],
-      automerge: false,
-    },
-    {
-      matchManagers: [
-        'cargo',
-      ],
-      matchUpdateTypes: [
-        'major',
-      ],
-      automerge: false,
-    },
-  ],
   timezone: 'UTC',
   dependencyDashboard: true,
 }
