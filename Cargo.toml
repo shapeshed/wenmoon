@@ -17,7 +17,7 @@ async-trait = "0.1"
 clap = { version = "4.5.49", features = ["derive"] }
 colored = "3.0.0"
 openssl = { version = "0.10", features = ["vendored"] }
-reqwest = { version = "0.12", features = ["json"] }
+reqwest = { version = "0.13", features = ["json"] }
 separator = "0.4.1"
 serde_derive = "1.0"
 toml = "0.9.8"
