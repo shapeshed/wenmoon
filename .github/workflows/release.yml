@@ -17,7 +17,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@1.88.0
@@ -25,7 +25,7 @@ jobs:
           components: rustfmt, clippy
 
       - name: Setup cache
-        uses: Swatinem/rust-cache@v2
+        uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2
 
       - name: Check formatting
         run: cargo fmt -- --check
@@ -68,7 +68,7 @@ jobs:
             target: aarch64-pc-windows-msvc
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 0
 
@@ -109,7 +109,7 @@ jobs:
             ./target/${{ matrix.target }}/release/wenmoon.exe
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: ${{ matrix.target }}
           path: |
@@ -129,7 +129,7 @@ jobs:
       contents: read
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@1.88.0
@@ -152,7 +152,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Verify tag matches Cargo.toml
         run: |
@@ -163,7 +163,7 @@ jobs:
           fi
 
       - name: Download all workflow run artifacts
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         with:
           path: artifacts
 
@@ -173,7 +173,7 @@ jobs:
           find artifacts -type f \( -name '*.deb' -o -name '*.tar.gz' -o -name '*.zip' \) -exec sh -c 'cd $(dirname {}) && sha256sum $(basename {})' \; | awk '{print $1, $2}' > checksums/sha256sums.txt
 
       - name: Upload consolidated SHA256 checksums as artifact
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: sha256sums
           path: checksums/sha256sums.txt
@@ -184,7 +184,7 @@ jobs:
           awk -v version="$version" '$0 ~ "## \\[" version "\\]"{flag=1;next} /## \[/{flag=0}flag' CHANGELOG.md > "${GITHUB_WORKSPACE}/CHANGELOG_SECTION.txt"
 
       - name: Create release and upload checksums and artifacts
-        uses: softprops/action-gh-release@v3
+        uses: softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3 # v3
         with:
           body_path: ${{ github.workspace }}/CHANGELOG_SECTION.txt
           files: |
