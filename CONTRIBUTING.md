@@ -53,6 +53,17 @@ git push origin X.Y.Z
 
 Pushing the tag triggers the release workflow.
 
+The workflow publishes the crate to crates.io using
+[Trusted Publishing](https://crates.io/docs/trusted-publishing). Before the
+first automated release, configure a trusted publisher for this repository on
+the crate's crates.io settings page:
+
+- repository: `shapeshed/wenmoon`
+- workflow: `release.yml`
+
+lib.rs indexes crates.io automatically, so no separate lib.rs publish step is
+required.
+
 ## API keys
 
 Never commit real API keys or a personal `config.toml`. Use a temporary config
