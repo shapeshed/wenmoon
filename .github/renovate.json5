@@ -25,6 +25,9 @@
       // updates stay as normal PRs.
       matchUpdateTypes: ['patch'],
       automerge: true,
+      // Rebasing on every base-branch change restarts CI and makes patch
+      // updates merge one per Renovate run. Only rebase when necessary.
+      rebaseWhen: 'conflicted',
     },
   ],
 }
