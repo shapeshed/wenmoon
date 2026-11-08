@@ -16,10 +16,20 @@
   ],
   timezone: 'UTC',
   dependencyDashboard: true,
+  osvVulnerabilityAlerts: true,
+  lockFileMaintenance: {
+    enabled: true,
+    schedule: ['before 5am on monday'],
+  },
   // Let Renovate merge itself once the CI checks pass, rather than relying on
   // GitHub's native auto-merge.
   platformAutomerge: false,
   packageRules: [
+    {
+      // Keep GitHub Actions pinned to immutable commits.
+      matchManagers: ['github-actions'],
+      pinDigests: true,
+    },
     {
       // Only patch updates are safe to merge without review; minor and major
       // updates stay as normal PRs.
@@ -28,6 +38,8 @@
       // Rebasing on every base-branch change restarts CI and makes patch
       // updates merge one per Renovate run. Only rebase when necessary.
       rebaseWhen: 'conflicted',
+      // Give new releases a short cooling-off period before automerging.
+      minimumReleaseAge: '3 days',
     },
   ],
 }
