@@ -12,29 +12,29 @@ pub struct CoinsWithMarketDataResponse {
     pub symbol: String,
     pub name: String,
     pub image: String,
-    pub current_price: f64,
+    pub current_price: Option<f64>,
     pub market_cap: Option<f64>,
     pub market_cap_rank: Option<u32>,
-    pub fully_diluted_valuation: Option<u64>,
-    pub total_volume: u64,
-    pub high_24h: f64,
-    pub low_24h: f64,
-    pub price_change_24h: f64,
-    pub price_change_percentage_24h: f64,
-    pub market_cap_change_24h: f64,
-    pub market_cap_change_percentage_24h: f64,
-    pub circulating_supply: f64,
+    pub fully_diluted_valuation: Option<f64>,
+    pub total_volume: Option<f64>,
+    pub high_24h: Option<f64>,
+    pub low_24h: Option<f64>,
+    pub price_change_24h: Option<f64>,
+    pub price_change_percentage_24h: Option<f64>,
+    pub market_cap_change_24h: Option<f64>,
+    pub market_cap_change_percentage_24h: Option<f64>,
+    pub circulating_supply: Option<f64>,
     pub total_supply: Option<f64>,
     pub max_supply: Option<f64>,
-    pub ath: f64,
-    pub ath_change_percentage: f64,
+    pub ath: Option<f64>,
+    pub ath_change_percentage: Option<f64>,
     pub ath_date: String,
-    pub atl: f64,
-    pub atl_change_percentage: f64,
+    pub atl: Option<f64>,
+    pub atl_change_percentage: Option<f64>,
     pub atl_date: String,
     pub roi: Option<Roi>,
     pub last_updated: String,
-    pub price_change_percentage_1h_in_currency: f64,
+    pub price_change_percentage_1h_in_currency: Option<f64>,
     pub price_change_percentage_24h_in_currency: Option<f64>,
     pub price_change_percentage_7d_in_currency: Option<f64>,
     pub price_change_percentage_30d_in_currency: Option<f64>,
@@ -117,31 +117,36 @@ impl FetchAndTransform for CoinGeckoClient {
                 responses
                     .iter()
                     .find(|&response| response.id == entry.ticker.to_lowercase())
-                    .map(|response| {
+                    .and_then(|response| {
+                        // Coins with no market data (e.g. migrated or inactive
+                        // tokens) can come back with a null current price.
+                        let current_price = response.current_price?;
                         let (pl, pl_percent) = entry
                             .amount
                             .map(|amount| {
                                 calculate_pl_and_percentage(
                                     entry.entry_price,
-                                    response.current_price,
+                                    current_price,
                                     amount,
                                 )
                             })
                             .unwrap_or((None, None));
-                        TableRow {
-                            price: Some(response.current_price),
+                        Some(TableRow {
+                            price: Some(current_price),
                             entry_price: entry.entry_price,
                             amount: entry.amount,
                             ticker: response.symbol.to_uppercase(),
-                            hourly_percent_change: response.price_change_percentage_1h_in_currency,
+                            hourly_percent_change: response
+                                .price_change_percentage_1h_in_currency
+                                .unwrap_or(0.0),
                             daily_percent_change: response.price_change_percentage_24h_in_currency,
                             weekly_percent_change: response.price_change_percentage_7d_in_currency,
                             monthly_percent_change: response
                                 .price_change_percentage_30d_in_currency,
-                            value: entry.amount.map(|amount| amount * response.current_price),
+                            value: entry.amount.map(|amount| amount * current_price),
                             pl,
                             pl_percent,
-                        }
+                        })
                     })
             })
             .collect();
@@ -149,5 +154,60 @@ impl FetchAndTransform for CoinGeckoClient {
         sort_table_rows(&mut table_rows, &self.sort_order);
 
         Ok(table_rows)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn client() -> CoinGeckoClient {
+        let portfolio = vec![PortfolioEntry {
+            ticker: "cream-2".to_string(),
+            amount: None,
+            entry_price: None,
+        }];
+        CoinGeckoClient::new("test".to_string(), portfolio, "d".to_string())
+    }
+
+    fn coin(current_price: &str, total_volume: &str) -> String {
+        format!(
+            r#"[{{
+                "id": "cream-2",
+                "symbol": "cream",
+                "name": "Cream",
+                "image": "",
+                "current_price": {current_price},
+                "total_volume": {total_volume},
+                "price_change_percentage_1h_in_currency": null,
+                "price_change_percentage_24h_in_currency": null,
+                "price_change_percentage_7d_in_currency": null,
+                "price_change_percentage_30d_in_currency": null,
+                "ath_date": "2021-01-01T00:00:00.000Z",
+                "atl_date": "2021-01-01T00:00:00.000Z",
+                "last_updated": "2026-11-08T00:00:00.000Z"
+            }}]"#
+        )
+    }
+
+    #[tokio::test]
+    async fn transform_data_accepts_fractional_volume_and_null_changes() {
+        let rows = client()
+            .transform_data(&coin("0.472", "131.5"))
+            .await
+            .unwrap();
+
+        assert_eq!(rows.len(), 1);
+        assert_eq!(rows[0].ticker, "CREAM");
+        assert_eq!(rows[0].price, Some(0.472));
+        assert_eq!(rows[0].hourly_percent_change, 0.0);
+        assert_eq!(rows[0].daily_percent_change, None);
+    }
+
+    #[tokio::test]
+    async fn transform_data_skips_coins_without_a_price() {
+        let rows = client().transform_data(&coin("null", "0.0")).await.unwrap();
+
+        assert!(rows.is_empty());
     }
 }
