@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [`ccbd048`](https://github.com/shapeshed/wenmoon/commit/ccbd048f3e91167e69439a6b89626cbf0b94dc2e) Harden CI and release workflows
 - [`56f066e`](https://github.com/shapeshed/wenmoon/commit/56f066e1a87a6e572e565c3f37a671f4ffbe2989) Enable Renovate vulnerability alerts and action pinning
 - [`069b907`](https://github.com/shapeshed/wenmoon/commit/069b907088632bc6298fad5c08d9b63b3db3ee1e) Improve changelog grouping and release checks
+- [`ec138c9`](https://github.com/shapeshed/wenmoon/commit/ec138c9a8a9d29b1ebc5eb3bccaf71b596bca8af) Automate crates.io publishing from the release workflow
 
 ### Dependencies
 
