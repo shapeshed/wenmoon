@@ -16,4 +16,15 @@
   ],
   timezone: 'UTC',
   dependencyDashboard: true,
+  // Let Renovate merge itself once the CI checks pass, rather than relying on
+  // GitHub's native auto-merge.
+  platformAutomerge: false,
+  packageRules: [
+    {
+      // Only patch updates are safe to merge without review; minor and major
+      // updates stay as normal PRs.
+      matchUpdateTypes: ['patch'],
+      automerge: true,
+    },
+  ],
 }
