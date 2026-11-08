@@ -85,8 +85,8 @@ commit_parsers = [
   { message = "^Deprecate.*$", group = "Deprecated", order = 3 },
   { message = "^Remove.*$", group = "Removed", order = 4 },
   { message = "^Fix.*$", group = "Fixed", order = 5 },
-  # { message = "^Bump.*$", group = "Security", order = 6 },
-  { message = ".*Bump.*", group = "Security", order = 6 },
+  # { message = "^Bump.*$", group = "Dependencies", order = 6 },
+  { message = ".*Bump.*", group = "Dependencies", order = 6 },
   { message = ".*", group = "Others", order = 999 },
 ]
 # filter out the commits that are not matched by commit parsers

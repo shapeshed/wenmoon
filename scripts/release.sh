@@ -113,6 +113,11 @@ if ! awk -v version="$version" '
 	exit 1
 fi
 
+echo "Running checks..."
+cargo fmt -- --check
+cargo clippy --all-targets --all-features --locked -- -D warnings
+cargo test --all-features --locked
+
 git add Cargo.toml Cargo.lock CHANGELOG.md
 git commit -m "Prepare for release $version"
 
