@@ -111,6 +111,43 @@ amount = "1053.34"
 entry_price = "3.95"
 ```
 
+## Development
+
+The toolchain is pinned in `rust-toolchain.toml` (currently Rust 1.88.0).
+
+```sh
+cargo fmt -- --check
+cargo clippy --all-targets --all-features --locked -- -D warnings
+cargo test --all-features --locked
+```
+
+Additional repository checks:
+
+```sh
+cargo deny check
+typos
+shellcheck scripts/*.sh
+dprint check
+```
+
+Releases are prepared with the release script:
+
+```sh
+./scripts/release.sh X.Y.Z
+```
+
+It creates a release branch, updates the version and lock file, regenerates
+`CHANGELOG.md`, and commits. Push the branch and open a pull request. After it
+is merged:
+
+```sh
+git switch main && git pull
+git tag -s -a X.Y.Z -m "Release X.Y.Z"
+git push origin X.Y.Z
+```
+
+Pushing the tag triggers the release workflow.
+
 ## Usage
 
 Vanilla usage. Will read file from `~/.config/wenmoon/config.toml`
