@@ -10,11 +10,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - [`9636fdd`](https://github.com/shapeshed/wenmoon/commit/9636fdd85ef933fe4f484f3c287dbc349d96f102) Add CODEOWNERS
+- [`300ef87`](https://github.com/shapeshed/wenmoon/commit/300ef8773a2b8e220c59476321198a80f1bb2b3b) Add contributor and security documentation
 
 ### Changed
 
 - [`bed2f5c`](https://github.com/shapeshed/wenmoon/commit/bed2f5caf5438649b4702f492819b5c32837e740) Update CI (#144)
 - [`4aa9690`](https://github.com/shapeshed/wenmoon/commit/4aa9690b475b2e0392b01f3f651c736a98e38dc0) Update renovate.json5
+- [`3217a4f`](https://github.com/shapeshed/wenmoon/commit/3217a4f81af55bfa12e11d342e4c2cad6c6537d2) Enable automerge for patch updates (#225)
+- [`df1e14a`](https://github.com/shapeshed/wenmoon/commit/df1e14a2a1149cb0a0ef6a454452d019e2f09c9d) Harden runtime, config, and provider handling
+- [`65f718c`](https://github.com/shapeshed/wenmoon/commit/65f718cf0b15e97bdf56a3da129098fbd680855a) Update vulnerable transitive dependencies
+- [`ccbd048`](https://github.com/shapeshed/wenmoon/commit/ccbd048f3e91167e69439a6b89626cbf0b94dc2e) Harden CI and release workflows
+- [`56f066e`](https://github.com/shapeshed/wenmoon/commit/56f066e1a87a6e572e565c3f37a671f4ffbe2989) Enable Renovate vulnerability alerts and action pinning
+- [`069b907`](https://github.com/shapeshed/wenmoon/commit/069b907088632bc6298fad5c08d9b63b3db3ee1e) Improve changelog grouping and release checks
+
+### Dependencies
+
+- [`14cfda8`](https://github.com/shapeshed/wenmoon/commit/14cfda80ee128c6aefe992b40b7840c59338be0c) Bump clap from 4.5.30 to 4.5.31 (#112)
+- [`87eb601`](https://github.com/shapeshed/wenmoon/commit/87eb601aedb94385df1cad841ca385c3496ab9fb) Bump serde from 1.0.218 to 1.0.219 (#114)
+- [`e3135ab`](https://github.com/shapeshed/wenmoon/commit/e3135ab349fa776c55a5496f65bc4649fcfa9c18) Bump async-trait from 0.1.86 to 0.1.87 (#113)
+- [`aaad670`](https://github.com/shapeshed/wenmoon/commit/aaad6709f37aab9516f6f070c20f38e647f0a2cd) Bump serde_json from 1.0.139 to 1.0.140 (#115)
+- [`0ff2a1c`](https://github.com/shapeshed/wenmoon/commit/0ff2a1c256a17e8a6cd142793190be641a046017) Bump tokio from 1.43.0 to 1.44.0 (#116)
+- [`3aa17c2`](https://github.com/shapeshed/wenmoon/commit/3aa17c2a95343369c227bffa4851dccb26004487) Bump async-trait from 0.1.87 to 0.1.88 (#120)
+- [`d6375dc`](https://github.com/shapeshed/wenmoon/commit/d6375dc0f3bfd2d6c525fd6411a936bd40b41130) Bump reqwest from 0.12.12 to 0.12.15 (#121)
+- [`73e98e9`](https://github.com/shapeshed/wenmoon/commit/73e98e984e1d365e3f141c73b0c27e922668c78e) Bump openssl from 0.10.71 to 0.10.72 (#124)
+- [`ff62842`](https://github.com/shapeshed/wenmoon/commit/ff628426be41f02255a3b4170df9d58e991c3191) Bump tokio from 1.44.0 to 1.45.0 (#128)
+- [`36327d4`](https://github.com/shapeshed/wenmoon/commit/36327d41119e3e893d6f89215b9916ad476f47a3) Bump clap from 4.5.31 to 4.5.38 (#129)
+- [`fa2b02e`](https://github.com/shapeshed/wenmoon/commit/fa2b02e0fdbba46cb89326256c82c618a8130478) Bump nix from 0.29.0 to 0.30.1 (#132)
+- [`3580d3d`](https://github.com/shapeshed/wenmoon/commit/3580d3debc95f4d3b886541a22f25c9efd942e28) Bump tabled from 0.18.0 to 0.20.0 (#137)
+- [`8f2b971`](https://github.com/shapeshed/wenmoon/commit/8f2b97190e6785f86df0a3decf2a9d96711c1d77) Bump which from 7.0.2 to 8.0.0 (#136)
+- [`6dda3db`](https://github.com/shapeshed/wenmoon/commit/6dda3dbf4d254f3d6bd400daccd12cc650e59fba) Bump Rust to 1.88.0 (#143)
+- [`3de71d1`](https://github.com/shapeshed/wenmoon/commit/3de71d1def8e5e5c978cbad32e83577efb51a8f9) Bump tokio from 1.45.0 to 1.47.1 (#142)
+- [`061caf0`](https://github.com/shapeshed/wenmoon/commit/061caf096ce9fbc5869f2c1f757ac1c869205e46) Bump toml from 0.8.20 to 0.9.4 (#141)
+- [`439320f`](https://github.com/shapeshed/wenmoon/commit/439320f1c4d6cfbaceac06699fd540e175a70bb5) Bump clap from 4.5.38 to 4.5.43 (#148)
+- [`8d97eee`](https://github.com/shapeshed/wenmoon/commit/8d97eeed67bb98f478fd2d766aa30b4463ce0152) Bump openssl from 0.10.72 to 0.10.73 (#147)
+- [`c4270c3`](https://github.com/shapeshed/wenmoon/commit/c4270c3abb5d4e948658fd9174e854c97ff3465a) Bump serde_json from 1.0.140 to 1.0.142 (#146)
+- [`dd0eb02`](https://github.com/shapeshed/wenmoon/commit/dd0eb02b523f10d62a9a5c29f25641c64f3bbc4f) Bump reqwest from 0.12.15 to 0.12.22 (#145)
+- [`b6d78c2`](https://github.com/shapeshed/wenmoon/commit/b6d78c2063e79176ed952fc8b04294078e86b869) Bump serde from 1.0.219 to 1.0.223 (#156)
+- [`b44fac5`](https://github.com/shapeshed/wenmoon/commit/b44fac5f06533169410203be928c83c9522219a5) Bump serde_json from 1.0.142 to 1.0.145 (#155)
+- [`71d4b23`](https://github.com/shapeshed/wenmoon/commit/71d4b23ed215ba2854ffd9fbd796988b92119fa7) Bump clap from 4.5.43 to 4.5.47 (#154)
+- [`d4eea79`](https://github.com/shapeshed/wenmoon/commit/d4eea7956149df3a512c2fa5ec5bde276d3a2ec4) Bump reqwest from 0.12.22 to 0.12.23 (#150)
+- [`eb00615`](https://github.com/shapeshed/wenmoon/commit/eb00615731b2dd8f1fcfdd5fa4344af81d83b8b1) Bump async-trait from 0.1.88 to 0.1.89 (#149)
+- [`6b73750`](https://github.com/shapeshed/wenmoon/commit/6b737504433a9f831aa1aeef9b2633f9d4ffd8e2) Bump toml from 0.9.5 to 0.9.8 (#161)
+- [`d55f863`](https://github.com/shapeshed/wenmoon/commit/d55f863a9cca009f393f2820ccdb9eb80e11255c) Bump serde from 1.0.223 to 1.0.228 (#160)
+- [`a1da56e`](https://github.com/shapeshed/wenmoon/commit/a1da56e08f0184f2978b691095b22a396ac90152) Bump clap from 4.5.47 to 4.5.48 (#158)
+- [`5fa6135`](https://github.com/shapeshed/wenmoon/commit/5fa6135fb5bc75adcf73f146ac822cfadb6ed9cd) Bump openssl from 0.10.73 to 0.10.74 (#165)
+- [`31ba392`](https://github.com/shapeshed/wenmoon/commit/31ba392be1beba3a605350990c9c2d7958d7f37c) Bump tokio from 1.47.1 to 1.48.0 (#164)
+- [`368b0cb`](https://github.com/shapeshed/wenmoon/commit/368b0cbfd870453181f44d6af45c03aeb68bc6c6) Bump clap from 4.5.48 to 4.5.49 (#163)
+- [`5ef32a5`](https://github.com/shapeshed/wenmoon/commit/5ef32a5326b2914eea61ada275cf50f18f1fd564) Bump reqwest from 0.12.23 to 0.12.24 (#162)
 
 ### Fixed
 
@@ -75,7 +117,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [`2131746`](https://github.com/shapeshed/wenmoon/commit/2131746a5b9d80053b737a80f1a4bfabe421e054) Update Rust crate serde_json to v1.0.151 (#213)
 - [`240b4ef`](https://github.com/shapeshed/wenmoon/commit/240b4ef2f28ad25a26f363b86b868f21c731bb62) Update serde monorepo to v1.0.229 (#212)
 - [`3a18527`](https://github.com/shapeshed/wenmoon/commit/3a1852718122a637d3aa045bd1586097d38bb1ec) Update Rust crate tokio to v1.53.1 (#210)
-- [`3217a4f`](https://github.com/shapeshed/wenmoon/commit/3217a4f81af55bfa12e11d342e4c2cad6c6537d2) Enable automerge for patch updates (#225)
 - [`2c5bb16`](https://github.com/shapeshed/wenmoon/commit/2c5bb16bbe2c7c20fe2f054c8a2beb3270aa3702) Update Rust crate openssl to v0.10.82 (#223)
 - [`9ac4703`](https://github.com/shapeshed/wenmoon/commit/9ac4703fd1afbbb66e7474e27ebbdcf22cd86859) Update Rust crate async-trait to v0.1.92 (#211)
 - [`69f95fe`](https://github.com/shapeshed/wenmoon/commit/69f95fe5e8b29ad20f7fec41eb3a73d74d3d0ef2) Update Rust crate clap to v4.6.7 (#209)
@@ -91,41 +132,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - [`5ed6ea5`](https://github.com/shapeshed/wenmoon/commit/5ed6ea5b8c9ad13d54cd499d663354952663832c) Remove onboarding
-
-### Security
-
-- [`14cfda8`](https://github.com/shapeshed/wenmoon/commit/14cfda80ee128c6aefe992b40b7840c59338be0c) Bump clap from 4.5.30 to 4.5.31 (#112)
-- [`87eb601`](https://github.com/shapeshed/wenmoon/commit/87eb601aedb94385df1cad841ca385c3496ab9fb) Bump serde from 1.0.218 to 1.0.219 (#114)
-- [`e3135ab`](https://github.com/shapeshed/wenmoon/commit/e3135ab349fa776c55a5496f65bc4649fcfa9c18) Bump async-trait from 0.1.86 to 0.1.87 (#113)
-- [`aaad670`](https://github.com/shapeshed/wenmoon/commit/aaad6709f37aab9516f6f070c20f38e647f0a2cd) Bump serde_json from 1.0.139 to 1.0.140 (#115)
-- [`0ff2a1c`](https://github.com/shapeshed/wenmoon/commit/0ff2a1c256a17e8a6cd142793190be641a046017) Bump tokio from 1.43.0 to 1.44.0 (#116)
-- [`3aa17c2`](https://github.com/shapeshed/wenmoon/commit/3aa17c2a95343369c227bffa4851dccb26004487) Bump async-trait from 0.1.87 to 0.1.88 (#120)
-- [`d6375dc`](https://github.com/shapeshed/wenmoon/commit/d6375dc0f3bfd2d6c525fd6411a936bd40b41130) Bump reqwest from 0.12.12 to 0.12.15 (#121)
-- [`73e98e9`](https://github.com/shapeshed/wenmoon/commit/73e98e984e1d365e3f141c73b0c27e922668c78e) Bump openssl from 0.10.71 to 0.10.72 (#124)
-- [`ff62842`](https://github.com/shapeshed/wenmoon/commit/ff628426be41f02255a3b4170df9d58e991c3191) Bump tokio from 1.44.0 to 1.45.0 (#128)
-- [`36327d4`](https://github.com/shapeshed/wenmoon/commit/36327d41119e3e893d6f89215b9916ad476f47a3) Bump clap from 4.5.31 to 4.5.38 (#129)
-- [`fa2b02e`](https://github.com/shapeshed/wenmoon/commit/fa2b02e0fdbba46cb89326256c82c618a8130478) Bump nix from 0.29.0 to 0.30.1 (#132)
-- [`3580d3d`](https://github.com/shapeshed/wenmoon/commit/3580d3debc95f4d3b886541a22f25c9efd942e28) Bump tabled from 0.18.0 to 0.20.0 (#137)
-- [`8f2b971`](https://github.com/shapeshed/wenmoon/commit/8f2b97190e6785f86df0a3decf2a9d96711c1d77) Bump which from 7.0.2 to 8.0.0 (#136)
-- [`6dda3db`](https://github.com/shapeshed/wenmoon/commit/6dda3dbf4d254f3d6bd400daccd12cc650e59fba) Bump Rust to 1.88.0 (#143)
-- [`3de71d1`](https://github.com/shapeshed/wenmoon/commit/3de71d1def8e5e5c978cbad32e83577efb51a8f9) Bump tokio from 1.45.0 to 1.47.1 (#142)
-- [`061caf0`](https://github.com/shapeshed/wenmoon/commit/061caf096ce9fbc5869f2c1f757ac1c869205e46) Bump toml from 0.8.20 to 0.9.4 (#141)
-- [`439320f`](https://github.com/shapeshed/wenmoon/commit/439320f1c4d6cfbaceac06699fd540e175a70bb5) Bump clap from 4.5.38 to 4.5.43 (#148)
-- [`8d97eee`](https://github.com/shapeshed/wenmoon/commit/8d97eeed67bb98f478fd2d766aa30b4463ce0152) Bump openssl from 0.10.72 to 0.10.73 (#147)
-- [`c4270c3`](https://github.com/shapeshed/wenmoon/commit/c4270c3abb5d4e948658fd9174e854c97ff3465a) Bump serde_json from 1.0.140 to 1.0.142 (#146)
-- [`dd0eb02`](https://github.com/shapeshed/wenmoon/commit/dd0eb02b523f10d62a9a5c29f25641c64f3bbc4f) Bump reqwest from 0.12.15 to 0.12.22 (#145)
-- [`b6d78c2`](https://github.com/shapeshed/wenmoon/commit/b6d78c2063e79176ed952fc8b04294078e86b869) Bump serde from 1.0.219 to 1.0.223 (#156)
-- [`b44fac5`](https://github.com/shapeshed/wenmoon/commit/b44fac5f06533169410203be928c83c9522219a5) Bump serde_json from 1.0.142 to 1.0.145 (#155)
-- [`71d4b23`](https://github.com/shapeshed/wenmoon/commit/71d4b23ed215ba2854ffd9fbd796988b92119fa7) Bump clap from 4.5.43 to 4.5.47 (#154)
-- [`d4eea79`](https://github.com/shapeshed/wenmoon/commit/d4eea7956149df3a512c2fa5ec5bde276d3a2ec4) Bump reqwest from 0.12.22 to 0.12.23 (#150)
-- [`eb00615`](https://github.com/shapeshed/wenmoon/commit/eb00615731b2dd8f1fcfdd5fa4344af81d83b8b1) Bump async-trait from 0.1.88 to 0.1.89 (#149)
-- [`6b73750`](https://github.com/shapeshed/wenmoon/commit/6b737504433a9f831aa1aeef9b2633f9d4ffd8e2) Bump toml from 0.9.5 to 0.9.8 (#161)
-- [`d55f863`](https://github.com/shapeshed/wenmoon/commit/d55f863a9cca009f393f2820ccdb9eb80e11255c) Bump serde from 1.0.223 to 1.0.228 (#160)
-- [`a1da56e`](https://github.com/shapeshed/wenmoon/commit/a1da56e08f0184f2978b691095b22a396ac90152) Bump clap from 4.5.47 to 4.5.48 (#158)
-- [`5fa6135`](https://github.com/shapeshed/wenmoon/commit/5fa6135fb5bc75adcf73f146ac822cfadb6ed9cd) Bump openssl from 0.10.73 to 0.10.74 (#165)
-- [`31ba392`](https://github.com/shapeshed/wenmoon/commit/31ba392be1beba3a605350990c9c2d7958d7f37c) Bump tokio from 1.47.1 to 1.48.0 (#164)
-- [`368b0cb`](https://github.com/shapeshed/wenmoon/commit/368b0cbfd870453181f44d6af45c03aeb68bc6c6) Bump clap from 4.5.48 to 4.5.49 (#163)
-- [`5ef32a5`](https://github.com/shapeshed/wenmoon/commit/5ef32a5326b2914eea61ada275cf50f18f1fd564) Bump reqwest from 0.12.23 to 0.12.24 (#162)
+- [`c9ec48f`](https://github.com/shapeshed/wenmoon/commit/c9ec48ffd617bce275c37d36b86325c30def3e27) Remove unused dependencies and add lint metadata
 
 ## [0.4.0] - 2025-03-02
 
@@ -134,11 +141,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [`3c386c7`](https://github.com/shapeshed/wenmoon/commit/3c386c7b34e7b49d0bcdf5048a25f65587d7fdc7) Refactor config to use toml
 - [`dae421d`](https://github.com/shapeshed/wenmoon/commit/dae421dc64dd552a9f2ae4c34ff116aa029d4833) Update README for toml
 
-### Others
-
-- [`3034333`](https://github.com/shapeshed/wenmoon/commit/3034333a583f8902f3dd3ac92eec1d2475d41cb9) Prepare for Release 0.4.0
-
-### Security
+### Dependencies
 
 - [`a4e665c`](https://github.com/shapeshed/wenmoon/commit/a4e665c6052707a44fd4a280850b5b9e7e922bfd) Bump tabled from 0.16.0 to 0.18.0 (#103)
 - [`fa80953`](https://github.com/shapeshed/wenmoon/commit/fa8095370a07acb9fc86f5fae7fba651f067f6a2) Bump clap from 4.5.23 to 4.5.29 (#108)
@@ -152,10 +155,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.3] - 2025-02-10
 
-### Changed
-
-- [`1c051de`](https://github.com/shapeshed/wenmoon/commit/1c051debb7f9acd9c6732bbf7e98d8a1e156588f) Update CHANGELOG
-
 ### Fixed
 
 - [`aabb03a`](https://github.com/shapeshed/wenmoon/commit/aabb03af992dca1d16739fc53995119ef66dbd9b) Fix macos build
@@ -166,20 +165,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.2] - 2025-02-10
 
-### Changed
-
-- [`0e5f31b`](https://github.com/shapeshed/wenmoon/commit/0e5f31bec6ff1021387cd032c1d439ec6e13268c) Update CHANGELOG
-
-### Fixed
-
-- [`eb3c71a`](https://github.com/shapeshed/wenmoon/commit/eb3c71ad4fba40bdb59b2672abb72dcd925ff04c) Fix CHANGELOG
-- [`3127b90`](https://github.com/shapeshed/wenmoon/commit/3127b903f9b3e68919458a1bd55f1eeff9dc1d10) Fix CHANGELOG
-
-### Others
-
-- [`cf5075e`](https://github.com/shapeshed/wenmoon/commit/cf5075ee65cc8dbd2b1ab04c2a88390f1367e917) Release 0.3.2
-
-### Security
+### Dependencies
 
 - [`584e1ec`](https://github.com/shapeshed/wenmoon/commit/584e1ec6a1a361c042b27931215ddaee1cbc851b) Bump reqwest from 0.12.2 to 0.12.3 (#30)
 - [`3a8e9e8`](https://github.com/shapeshed/wenmoon/commit/3a8e9e89ec8edaf6050ca7331c32e348d0124934) Bump async-trait from 0.1.79 to 0.1.80 (#31)
@@ -237,13 +223,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [`9dd62b7`](https://github.com/shapeshed/wenmoon/commit/9dd62b70daaaecd4bedcd8e307b910c6ecceeb38) Bump which from 7.0.0 to 7.0.2 (#102)
 - [`d178b1d`](https://github.com/shapeshed/wenmoon/commit/d178b1db0f5e30bc5afffd517fce160ab5fb1bfd) Bump rust version
 
+### Fixed
+
+- [`eb3c71a`](https://github.com/shapeshed/wenmoon/commit/eb3c71ad4fba40bdb59b2672abb72dcd925ff04c) Fix CHANGELOG
+- [`3127b90`](https://github.com/shapeshed/wenmoon/commit/3127b903f9b3e68919458a1bd55f1eeff9dc1d10) Fix CHANGELOG
+
+### Others
+
+- [`cf5075e`](https://github.com/shapeshed/wenmoon/commit/cf5075ee65cc8dbd2b1ab04c2a88390f1367e917) Release 0.3.2
+
 ## [0.3.0] - 2024-04-01
 
 ### Changed
 
 - [`0f3d2d1`](https://github.com/shapeshed/wenmoon/commit/0f3d2d1e736184f45b15920b30815c43ab68b403) Update Cargo.lock
 
-### Security
+### Dependencies
 
 - [`e977fe9`](https://github.com/shapeshed/wenmoon/commit/e977fe98ed4ae3883e1bb4bd398407131939fa04) Bump separator from 0.3.1 to 0.4.1 (#12)
 - [`2aa9d93`](https://github.com/shapeshed/wenmoon/commit/2aa9d933f7697059bf8c7fee4f33e65346891d89) Bump reqwest from 0.11.24 to 0.11.25 (#16)
@@ -284,7 +279,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - [`abcd0e1`](https://github.com/shapeshed/wenmoon/commit/abcd0e1a00f33032cf52865cef4d60643a294c0c) Change price to use three decimals
-- [`56daf81`](https://github.com/shapeshed/wenmoon/commit/56daf81bf66ecdec5a90ab6d402897604efbc949) Update CHANGELOG.md
+
+### Dependencies
+
+- [`a842b5f`](https://github.com/shapeshed/wenmoon/commit/a842b5f05eb68d549ebd74bb56936699492746cd) Bump version (#5)
 
 ### Fixed
 
@@ -296,10 +294,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [`7e0dfe5`](https://github.com/shapeshed/wenmoon/commit/7e0dfe51b9e79f85e673c8d9a7c0f651950c519e) Add hourly weekly (#6)
 - [`0e5eaa6`](https://github.com/shapeshed/wenmoon/commit/0e5eaa6bb579f6909b82ea4d669d45f3c27d362d) Add monthly (#7)
-
-### Security
-
-- [`a842b5f`](https://github.com/shapeshed/wenmoon/commit/a842b5f05eb68d549ebd74bb56936699492746cd) Bump version (#5)
 
 ## [0.0.2] - 2024-02-27
 
