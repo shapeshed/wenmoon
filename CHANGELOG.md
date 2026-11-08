@@ -5,12 +5,138 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2026-11-08
+
+### Added
+
+- [`9636fdd`](https://github.com/shapeshed/wenmoon/commit/9636fdd85ef933fe4f484f3c287dbc349d96f102) Add CODEOWNERS
+
+### Changed
+
+- [`bed2f5c`](https://github.com/shapeshed/wenmoon/commit/bed2f5caf5438649b4702f492819b5c32837e740) Update CI (#144)
+- [`4aa9690`](https://github.com/shapeshed/wenmoon/commit/4aa9690b475b2e0392b01f3f651c736a98e38dc0) Update renovate.json5
+
+### Fixed
+
+- [`a36f948`](https://github.com/shapeshed/wenmoon/commit/a36f948157270e38aa98b59a70d8d67bca543bff) Fix README formatting
+- [`2663e63`](https://github.com/shapeshed/wenmoon/commit/2663e63f788649fa200777de4a79d99e4be4360e) Fix handling of nullable provider API fields
+- [`d12957e`](https://github.com/shapeshed/wenmoon/commit/d12957e645076e94351b5f61c5427c73a1bf58c8) Fix release script
+
+### Others
+
+- [`bf93fd7`](https://github.com/shapeshed/wenmoon/commit/bf93fd746317061c9bbe4d98a2c94932f8bdd2d4) Update Swatinem/rust-cache action to v2.8.1 (#167)
+- [`bff30f8`](https://github.com/shapeshed/wenmoon/commit/bff30f8bbf72575058d3580c1a1f16ecca287822) Update softprops/action-gh-release action to v2 (#170)
+- [`6cb237b`](https://github.com/shapeshed/wenmoon/commit/6cb237b7a531001808e129b73176ac727647c364) Update GitHub Artifact Actions (#169)
+- [`82c57f5`](https://github.com/shapeshed/wenmoon/commit/82c57f512f756191e4cd7aa8aa7a0dc06235c869) Update actions/checkout action to v5 (#168)
+- [`9b28e7d`](https://github.com/shapeshed/wenmoon/commit/9b28e7d2396589f1f3c9ed5c39fc78c7dc38ba7e) Update Rust crate clap to v4.5.50 (#166)
+- [`151b13c`](https://github.com/shapeshed/wenmoon/commit/151b13c7fccb5b4736f0ce03b5d33746cdaa6674) Move to renovate
+- [`c61022b`](https://github.com/shapeshed/wenmoon/commit/c61022b7f5665be123bce3bb7c8179d3f74e7579) Migrate to json5
+- [`fda6eaf`](https://github.com/shapeshed/wenmoon/commit/fda6eafdd3cd37e372c348e51c35a04216c7069c) Edit renovate.json5
+- [`11d7b34`](https://github.com/shapeshed/wenmoon/commit/11d7b34acfd33c9190eafdbaa191a136222ab809) Migrate config .github/renovate.json5 (#172)
+- [`67e54e6`](https://github.com/shapeshed/wenmoon/commit/67e54e61ca3f9747b635db98eee870eed21985af) Run renovate prs any time
+- [`a40ef26`](https://github.com/shapeshed/wenmoon/commit/a40ef26f15d3b807cfd43b472b13f0d7bd7f3892) Update Rust crate clap to v4.5.51 (#173)
+- [`f1f341d`](https://github.com/shapeshed/wenmoon/commit/f1f341dc1aa85b7147685aeb75d3eed231ef423b) Use default prs
+- [`eeef8b1`](https://github.com/shapeshed/wenmoon/commit/eeef8b1ad6c559222b0c39036c143838df4f6c23) Update Rust crate clap to v4.5.52 (#175)
+- [`8fea749`](https://github.com/shapeshed/wenmoon/commit/8fea74930a4b0dcbc79efb8c20b60e6e3128c2b0) Update Rust crate reqwest to v0.12.25 (#179)
+- [`b0eedf7`](https://github.com/shapeshed/wenmoon/commit/b0eedf71382e6fc85538339625071dcae96801a1) Update Swatinem/rust-cache action to v2.8.2 (#178)
+- [`66630cc`](https://github.com/shapeshed/wenmoon/commit/66630cc911789dbf55bdb240c13255066b85200f) Update actions/checkout action to v6 (#177)
+- [`8dec2fd`](https://github.com/shapeshed/wenmoon/commit/8dec2fd6cf3b81e7f2631df5808444457dabb5d7) Update Rust crate clap to v4.5.53 (#176)
+- [`7fc37ed`](https://github.com/shapeshed/wenmoon/commit/7fc37ed17913f823be88e78b3b4e303020c44ca2) Update Rust crate openssl to v0.10.75 (#174)
+- [`d4026a2`](https://github.com/shapeshed/wenmoon/commit/d4026a206ae9fa611dee4c6cb423abb784812f4c) Update GitHub Artifact Actions (#180)
+- [`2517eae`](https://github.com/shapeshed/wenmoon/commit/2517eaefd351daa4f12319dda520f6738cd1bd73) Update Rust crate reqwest to v0.12.26 (#181)
+- [`773234f`](https://github.com/shapeshed/wenmoon/commit/773234f1ab7490549c953a69fd76cfc658d6e020) Update Rust crate toml to v0.9.11 (#182)
+- [`5c20973`](https://github.com/shapeshed/wenmoon/commit/5c20973abd9b8a46f077db50c60d7d637ab8e649) Update Rust crate serde_json to v1.0.149 (#183)
+- [`fd5d597`](https://github.com/shapeshed/wenmoon/commit/fd5d597ec1e5342217f824d4b3b90f374f870601) Update Rust crate nix to 0.31.0 (#189)
+- [`b315bb0`](https://github.com/shapeshed/wenmoon/commit/b315bb040383846136be61ad748f27ec66a26efd) Update Rust crate colored to v3.1.1 (#188)
+- [`7c83b26`](https://github.com/shapeshed/wenmoon/commit/7c83b26752ccb8d888119203e7f32446d6b6ed53) Update Rust crate tokio to v1.49.0 (#187)
+- [`80a50dc`](https://github.com/shapeshed/wenmoon/commit/80a50dcf78c660438d10b2467095f1face284e94) Update Rust crate clap to v4.5.56 (#186)
+- [`c055eb2`](https://github.com/shapeshed/wenmoon/commit/c055eb2de31025e251dbc570347c2058611eaab8) Update Rust crate reqwest to 0.13 (#185)
+- [`8515129`](https://github.com/shapeshed/wenmoon/commit/85151294acc432feabae94cacb3e4cd235be7c13) Update Rust crate reqwest to v0.13.4 (#191)
+- [`a00eeef`](https://github.com/shapeshed/wenmoon/commit/a00eeef1022055d3c8efbd59ddfaf98714611275) Update Rust crate clap to v4.6.1 (#190)
+- [`0f24cff`](https://github.com/shapeshed/wenmoon/commit/0f24cff98862bd0c99ce6a637078f9aab9ed7638) Update Rust crate toml to v0.9.12 (#192)
+- [`b1996e9`](https://github.com/shapeshed/wenmoon/commit/b1996e9966faaf0dad768f8de508affdad1088c5) Update Rust crate tabled to 0.21.0 (#201)
+- [`613f9fb`](https://github.com/shapeshed/wenmoon/commit/613f9fb6a1900d529b6abf6ff4954392cfb33e7d) Update Rust crate serde_json to v1.0.150 (#200)
+- [`ba2c40a`](https://github.com/shapeshed/wenmoon/commit/ba2c40aca7d3481bbe08b40820b04d2c65a65aa7) Update Swatinem/rust-cache action to v2.9.1 (#199)
+- [`6b0cc5d`](https://github.com/shapeshed/wenmoon/commit/6b0cc5daf04835de30c9a924014685a65ee7ec99) Update Rust crate openssl to v0.10.80 (#198)
+- [`564e736`](https://github.com/shapeshed/wenmoon/commit/564e7360185a25a969159e7133b654d3ba2a4756) Update Rust crate toml to v1 (#193)
+- [`8e95d0d`](https://github.com/shapeshed/wenmoon/commit/8e95d0d39374f2ea7e403aa7eb7cdfd5e0ba1e2d) Update Rust crate nix to v0.31.3 (#195)
+- [`c304013`](https://github.com/shapeshed/wenmoon/commit/c30401374f7a895b63df2dd698ffc2157307b628) Update Rust crate which to v8.0.2 (#197)
+- [`9e2825b`](https://github.com/shapeshed/wenmoon/commit/9e2825b70063e78eaa197745bcdc4140f8038231) Update GitHub Artifact Actions (#194)
+- [`6efda3f`](https://github.com/shapeshed/wenmoon/commit/6efda3ffec7d66bf6c29fb27ca40d08f281c434b) Update Rust crate tokio to v1.52.3 (#196)
+- [`fdb0761`](https://github.com/shapeshed/wenmoon/commit/fdb0761292fe687bda283717b97c20a061a34fec) Update softprops/action-gh-release action to v3 (#202)
+- [`6455cd2`](https://github.com/shapeshed/wenmoon/commit/6455cd260f73cee94953f5630ca01e784107d299) Update Rust crate which to v8.0.3 (#203)
+- [`f62eb2c`](https://github.com/shapeshed/wenmoon/commit/f62eb2c3528b14d9c7667176a0cf2d57cde49835) Update Rust crate toml to v1.1.3 (#207)
+- [`3f85da9`](https://github.com/shapeshed/wenmoon/commit/3f85da99904e9eab45f7ea5f80d51ec3798585ac) Update Rust crate openssl to v0.10.81 (#204)
+- [`642e08c`](https://github.com/shapeshed/wenmoon/commit/642e08c637d91a60606e3d0dbb6fc9818e75af2d) Update actions/checkout action to v7 (#206)
+- [`c1249f1`](https://github.com/shapeshed/wenmoon/commit/c1249f1e2312521a9d567b51aec41687e8d70bc1) Update Rust crate which to v8.0.4 (#205)
+- [`2aa8d09`](https://github.com/shapeshed/wenmoon/commit/2aa8d091b4e5a22625b6736b263d8e8582991ce9) Update Rust crate which to v8.0.5 (#208)
+- [`b31f579`](https://github.com/shapeshed/wenmoon/commit/b31f579e4003a3761f704a7b145f51c6aebcb7de) Update Swatinem/rust-cache action to v2.9.2 (#215)
+- [`1c3dda9`](https://github.com/shapeshed/wenmoon/commit/1c3dda98745bcec2c914feb5482d17f0dd3dc320) Update Rust crate toml to v1.1.4 (#214)
+- [`2131746`](https://github.com/shapeshed/wenmoon/commit/2131746a5b9d80053b737a80f1a4bfabe421e054) Update Rust crate serde_json to v1.0.151 (#213)
+- [`240b4ef`](https://github.com/shapeshed/wenmoon/commit/240b4ef2f28ad25a26f363b86b868f21c731bb62) Update serde monorepo to v1.0.229 (#212)
+- [`3a18527`](https://github.com/shapeshed/wenmoon/commit/3a1852718122a637d3aa045bd1586097d38bb1ec) Update Rust crate tokio to v1.53.1 (#210)
+- [`3217a4f`](https://github.com/shapeshed/wenmoon/commit/3217a4f81af55bfa12e11d342e4c2cad6c6537d2) Enable automerge for patch updates (#225)
+- [`2c5bb16`](https://github.com/shapeshed/wenmoon/commit/2c5bb16bbe2c7c20fe2f054c8a2beb3270aa3702) Update Rust crate openssl to v0.10.82 (#223)
+- [`9ac4703`](https://github.com/shapeshed/wenmoon/commit/9ac4703fd1afbbb66e7474e27ebbdcf22cd86859) Update Rust crate async-trait to v0.1.92 (#211)
+- [`69f95fe`](https://github.com/shapeshed/wenmoon/commit/69f95fe5e8b29ad20f7fec41eb3a73d74d3d0ef2) Update Rust crate clap to v4.6.7 (#209)
+- [`ae0e1af`](https://github.com/shapeshed/wenmoon/commit/ae0e1af5e491f161e16da9be698d13b9ca20561a) Only rebase patch updates on conflict (#226)
+- [`dbd789c`](https://github.com/shapeshed/wenmoon/commit/dbd789cd0a90930ffa7ae8d6f73ed816c135aa08) Update Rust crate reqwest to v0.13.5 (#219)
+- [`fd16f91`](https://github.com/shapeshed/wenmoon/commit/fd16f9145690b9c6c9f352ebf76ec54cce9c9488) Update Rust crate serde_json to v1.0.154 (#221)
+- [`971ecf0`](https://github.com/shapeshed/wenmoon/commit/971ecf0accad66082ec85df8bcddb2f1ec89e2a2) Update Rust crate which to v8.0.6 (#216)
+- [`fcb3313`](https://github.com/shapeshed/wenmoon/commit/fcb331314cb168171bd674959685276417841255) Update Swatinem/rust-cache action to v2.9.3 (#222)
+- [`6bf3ab6`](https://github.com/shapeshed/wenmoon/commit/6bf3ab629134328342fecd2224543db20733c0ee) Update Rust crate toml to v1.2.1 (#217)
+- [`9cd5528`](https://github.com/shapeshed/wenmoon/commit/9cd5528a8fafb097b7824f30f1098e29aabd9a0e) Update Rust crate tokio to v1.54.1 (#220)
+- [`6e75e70`](https://github.com/shapeshed/wenmoon/commit/6e75e70b7b48ee43a2179734e3c2928e8ff7ead2) Update Rust crate tabled to 0.22.0 (#218)
+
+### Removed
+
+- [`5ed6ea5`](https://github.com/shapeshed/wenmoon/commit/5ed6ea5b8c9ad13d54cd499d663354952663832c) Remove onboarding
+
+### Security
+
+- [`14cfda8`](https://github.com/shapeshed/wenmoon/commit/14cfda80ee128c6aefe992b40b7840c59338be0c) Bump clap from 4.5.30 to 4.5.31 (#112)
+- [`87eb601`](https://github.com/shapeshed/wenmoon/commit/87eb601aedb94385df1cad841ca385c3496ab9fb) Bump serde from 1.0.218 to 1.0.219 (#114)
+- [`e3135ab`](https://github.com/shapeshed/wenmoon/commit/e3135ab349fa776c55a5496f65bc4649fcfa9c18) Bump async-trait from 0.1.86 to 0.1.87 (#113)
+- [`aaad670`](https://github.com/shapeshed/wenmoon/commit/aaad6709f37aab9516f6f070c20f38e647f0a2cd) Bump serde_json from 1.0.139 to 1.0.140 (#115)
+- [`0ff2a1c`](https://github.com/shapeshed/wenmoon/commit/0ff2a1c256a17e8a6cd142793190be641a046017) Bump tokio from 1.43.0 to 1.44.0 (#116)
+- [`3aa17c2`](https://github.com/shapeshed/wenmoon/commit/3aa17c2a95343369c227bffa4851dccb26004487) Bump async-trait from 0.1.87 to 0.1.88 (#120)
+- [`d6375dc`](https://github.com/shapeshed/wenmoon/commit/d6375dc0f3bfd2d6c525fd6411a936bd40b41130) Bump reqwest from 0.12.12 to 0.12.15 (#121)
+- [`73e98e9`](https://github.com/shapeshed/wenmoon/commit/73e98e984e1d365e3f141c73b0c27e922668c78e) Bump openssl from 0.10.71 to 0.10.72 (#124)
+- [`ff62842`](https://github.com/shapeshed/wenmoon/commit/ff628426be41f02255a3b4170df9d58e991c3191) Bump tokio from 1.44.0 to 1.45.0 (#128)
+- [`36327d4`](https://github.com/shapeshed/wenmoon/commit/36327d41119e3e893d6f89215b9916ad476f47a3) Bump clap from 4.5.31 to 4.5.38 (#129)
+- [`fa2b02e`](https://github.com/shapeshed/wenmoon/commit/fa2b02e0fdbba46cb89326256c82c618a8130478) Bump nix from 0.29.0 to 0.30.1 (#132)
+- [`3580d3d`](https://github.com/shapeshed/wenmoon/commit/3580d3debc95f4d3b886541a22f25c9efd942e28) Bump tabled from 0.18.0 to 0.20.0 (#137)
+- [`8f2b971`](https://github.com/shapeshed/wenmoon/commit/8f2b97190e6785f86df0a3decf2a9d96711c1d77) Bump which from 7.0.2 to 8.0.0 (#136)
+- [`6dda3db`](https://github.com/shapeshed/wenmoon/commit/6dda3dbf4d254f3d6bd400daccd12cc650e59fba) Bump Rust to 1.88.0 (#143)
+- [`3de71d1`](https://github.com/shapeshed/wenmoon/commit/3de71d1def8e5e5c978cbad32e83577efb51a8f9) Bump tokio from 1.45.0 to 1.47.1 (#142)
+- [`061caf0`](https://github.com/shapeshed/wenmoon/commit/061caf096ce9fbc5869f2c1f757ac1c869205e46) Bump toml from 0.8.20 to 0.9.4 (#141)
+- [`439320f`](https://github.com/shapeshed/wenmoon/commit/439320f1c4d6cfbaceac06699fd540e175a70bb5) Bump clap from 4.5.38 to 4.5.43 (#148)
+- [`8d97eee`](https://github.com/shapeshed/wenmoon/commit/8d97eeed67bb98f478fd2d766aa30b4463ce0152) Bump openssl from 0.10.72 to 0.10.73 (#147)
+- [`c4270c3`](https://github.com/shapeshed/wenmoon/commit/c4270c3abb5d4e948658fd9174e854c97ff3465a) Bump serde_json from 1.0.140 to 1.0.142 (#146)
+- [`dd0eb02`](https://github.com/shapeshed/wenmoon/commit/dd0eb02b523f10d62a9a5c29f25641c64f3bbc4f) Bump reqwest from 0.12.15 to 0.12.22 (#145)
+- [`b6d78c2`](https://github.com/shapeshed/wenmoon/commit/b6d78c2063e79176ed952fc8b04294078e86b869) Bump serde from 1.0.219 to 1.0.223 (#156)
+- [`b44fac5`](https://github.com/shapeshed/wenmoon/commit/b44fac5f06533169410203be928c83c9522219a5) Bump serde_json from 1.0.142 to 1.0.145 (#155)
+- [`71d4b23`](https://github.com/shapeshed/wenmoon/commit/71d4b23ed215ba2854ffd9fbd796988b92119fa7) Bump clap from 4.5.43 to 4.5.47 (#154)
+- [`d4eea79`](https://github.com/shapeshed/wenmoon/commit/d4eea7956149df3a512c2fa5ec5bde276d3a2ec4) Bump reqwest from 0.12.22 to 0.12.23 (#150)
+- [`eb00615`](https://github.com/shapeshed/wenmoon/commit/eb00615731b2dd8f1fcfdd5fa4344af81d83b8b1) Bump async-trait from 0.1.88 to 0.1.89 (#149)
+- [`6b73750`](https://github.com/shapeshed/wenmoon/commit/6b737504433a9f831aa1aeef9b2633f9d4ffd8e2) Bump toml from 0.9.5 to 0.9.8 (#161)
+- [`d55f863`](https://github.com/shapeshed/wenmoon/commit/d55f863a9cca009f393f2820ccdb9eb80e11255c) Bump serde from 1.0.223 to 1.0.228 (#160)
+- [`a1da56e`](https://github.com/shapeshed/wenmoon/commit/a1da56e08f0184f2978b691095b22a396ac90152) Bump clap from 4.5.47 to 4.5.48 (#158)
+- [`5fa6135`](https://github.com/shapeshed/wenmoon/commit/5fa6135fb5bc75adcf73f146ac822cfadb6ed9cd) Bump openssl from 0.10.73 to 0.10.74 (#165)
+- [`31ba392`](https://github.com/shapeshed/wenmoon/commit/31ba392be1beba3a605350990c9c2d7958d7f37c) Bump tokio from 1.47.1 to 1.48.0 (#164)
+- [`368b0cb`](https://github.com/shapeshed/wenmoon/commit/368b0cbfd870453181f44d6af45c03aeb68bc6c6) Bump clap from 4.5.48 to 4.5.49 (#163)
+- [`5ef32a5`](https://github.com/shapeshed/wenmoon/commit/5ef32a5326b2914eea61ada275cf50f18f1fd564) Bump reqwest from 0.12.23 to 0.12.24 (#162)
+
 ## [0.4.0] - 2025-03-02
 
 ### Changed
 
 - [`3c386c7`](https://github.com/shapeshed/wenmoon/commit/3c386c7b34e7b49d0bcdf5048a25f65587d7fdc7) Refactor config to use toml
 - [`dae421d`](https://github.com/shapeshed/wenmoon/commit/dae421dc64dd552a9f2ae4c34ff116aa029d4833) Update README for toml
+
+### Others
+
+- [`3034333`](https://github.com/shapeshed/wenmoon/commit/3034333a583f8902f3dd3ac92eec1d2475d41cb9) Prepare for Release 0.4.0
 
 ### Security
 
@@ -194,6 +320,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [`b39e90c`](https://github.com/shapeshed/wenmoon/commit/b39e90cf5162e6925bfb1e823bbbb5d03941b703) Initial commit
 
+[0.5.0]: https://github.com/shapeshed/wenmoon/compare/0.4.0..0.5.0
 [0.4.0]: https://github.com/shapeshed/wenmoon/compare/0.3.3..0.4.0
 [0.3.3]: https://github.com/shapeshed/wenmoon/compare/0.3.2..0.3.3
 [0.3.2]: https://github.com/shapeshed/wenmoon/compare/0.3.0..0.3.2
