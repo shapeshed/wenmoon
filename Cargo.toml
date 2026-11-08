@@ -10,7 +10,7 @@ name = "wenmoon"
 readme = "README.md"
 repository = "https://github.com/shapeshed/wenmoon"
 rust-version = "1.88.0"
-version = "0.4.0"
+version = "0.5.0"
 
 [dependencies]
 async-trait = "0.1"
@@ -19,21 +19,26 @@ colored = "3.0.0"
 openssl = { version = "0.10", features = ["vendored"] }
 reqwest = { version = "0.13", features = ["json"] }
 separator = "0.4.1"
-serde_derive = "1.0"
-toml = "1.0.0"
-serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
 tabled = { version = "0.22.0", features = ["ansi"] }
 tokio = { version = "1", features = ["full"] }
+toml = "1.0.0"
 
-[target.'cfg(unix)'.dependencies]
-nix = { version = "0.31.0", default-features = false, features = [
-  "fs",
-  "user",
-] }
+[lints.rust]
+unsafe_code = "forbid"
 
-[target.'cfg(windows)'.dependencies]
-which = "8.0.0"
+[lints.clippy]
+dbg_macro = "deny"
+todo = "deny"
+unimplemented = "deny"
+
+[package.metadata.deb]
+maintainer = "George Ornbo <george@shapeshed.com>"
+copyright = "2024, George Ornbo"
+section = "utils"
+priority = "optional"
+extended-description = "Your crypto portfolio and terminal together at last."
 
 [profile.release]
 codegen-units = 1

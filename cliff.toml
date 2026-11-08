@@ -80,13 +80,16 @@ commit_preprocessors = [
 ]
 # regex for parsing and grouping commits
 commit_parsers = [
+  { message = "^Prepare for [Rr]elease", skip = true },
+  { message = "^Update release notes", skip = true },
+  { message = "^Update CHANGELOG", skip = true },
   { message = "^Add.*$", group = "Added", order = 0 },
-  { message = "^(Change|Refactor|Update).*$", group = "Changed", order = 1 },
+  { message = "^(Automate|Change|Enable|Harden|Improve|Refactor|Update).*$", group = "Changed", order = 1 },
   { message = "^Deprecate.*$", group = "Deprecated", order = 3 },
   { message = "^Remove.*$", group = "Removed", order = 4 },
   { message = "^Fix.*$", group = "Fixed", order = 5 },
-  # { message = "^Bump.*$", group = "Security", order = 6 },
-  { message = ".*Bump.*", group = "Security", order = 6 },
+  # { message = "^Bump.*$", group = "Dependencies", order = 6 },
+  { message = ".*Bump.*", group = "Dependencies", order = 6 },
   { message = ".*", group = "Others", order = 999 },
 ]
 # filter out the commits that are not matched by commit parsers

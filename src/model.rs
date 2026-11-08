@@ -95,3 +95,98 @@ pub fn sort_table_rows(table_rows: &mut [TableRow], sort_order: &str) {
     };
     table_rows.sort_by(sort_fn);
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn row(
+        ticker: &str,
+        hourly: f64,
+        daily: Option<f64>,
+        weekly: Option<f64>,
+        monthly: Option<f64>,
+    ) -> TableRow {
+        TableRow {
+            ticker: ticker.to_string(),
+            price: None,
+            hourly_percent_change: hourly,
+            daily_percent_change: daily,
+            weekly_percent_change: weekly,
+            monthly_percent_change: monthly,
+            entry_price: None,
+            amount: None,
+            value: None,
+            pl: None,
+            pl_percent: None,
+        }
+    }
+
+    fn tickers(rows: &[TableRow]) -> Vec<&str> {
+        rows.iter().map(|row| row.ticker.as_str()).collect()
+    }
+
+    #[test]
+    fn sorts_by_hourly_change_descending() {
+        let mut rows = vec![
+            row("LOW", 1.0, None, None, None),
+            row("HIGH", 3.0, None, None, None),
+            row("MID", 2.0, None, None, None),
+        ];
+
+        sort_table_rows(&mut rows, "h");
+
+        assert_eq!(tickers(&rows), vec!["HIGH", "MID", "LOW"]);
+    }
+
+    #[test]
+    fn sorts_by_daily_change_descending_with_missing_last() {
+        let mut rows = vec![
+            row("LOW", 0.0, Some(1.0), None, None),
+            row("MISSING", 0.0, None, None, None),
+            row("HIGH", 0.0, Some(3.0), None, None),
+        ];
+
+        sort_table_rows(&mut rows, "d");
+
+        assert_eq!(tickers(&rows), vec!["HIGH", "LOW", "MISSING"]);
+    }
+
+    #[test]
+    fn sorts_by_weekly_change_descending() {
+        let mut rows = vec![
+            row("LOW", 0.0, None, Some(1.0), None),
+            row("HIGH", 0.0, None, Some(3.0), None),
+            row("MID", 0.0, None, Some(2.0), None),
+        ];
+
+        sort_table_rows(&mut rows, "w");
+
+        assert_eq!(tickers(&rows), vec!["HIGH", "MID", "LOW"]);
+    }
+
+    #[test]
+    fn sorts_by_monthly_change_descending() {
+        let mut rows = vec![
+            row("LOW", 0.0, None, None, Some(1.0)),
+            row("HIGH", 0.0, None, None, Some(3.0)),
+            row("MID", 0.0, None, None, Some(2.0)),
+        ];
+
+        sort_table_rows(&mut rows, "m");
+
+        assert_eq!(tickers(&rows), vec!["HIGH", "MID", "LOW"]);
+    }
+
+    #[test]
+    fn unknown_sort_order_defaults_to_daily() {
+        let mut rows = vec![
+            row("LOW", 0.0, Some(1.0), None, None),
+            row("HIGH", 0.0, Some(3.0), None, None),
+        ];
+
+        sort_table_rows(&mut rows, "unknown");
+
+        assert_eq!(tickers(&rows), vec!["HIGH", "LOW"]);
+    }
+}

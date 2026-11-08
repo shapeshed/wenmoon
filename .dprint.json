@@ -2,7 +2,9 @@
   "markdown": {
     "textWrap": "always"
   },
-  "excludes": [],
+  "excludes": [
+    "CHANGELOG.md"
+  ],
   "plugins": [
     "https://plugins.dprint.dev/markdown-0.16.4.wasm"
   ]
